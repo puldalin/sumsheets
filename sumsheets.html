@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@300;400;500;600;700&family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* CSS เหมือนตัวเดิมของคุณแต่มีการเก็บรายละเอียดเพิ่มเล็กน้อย */
 :root {
   --white: #FFFFFF;
   --off-white: #FAFAFA;
@@ -235,6 +234,193 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 .btn:hover .btn-arrow { transform: translateX(4px); }
 .btn-block { width: 100%; }
 
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-soft);
+}
+.trust-icon {
+  width: 24px; height: 24px;
+  background: var(--green-soft);
+  color: var(--green-mid);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+/* ============ MOCKUP ============ */
+.mockup-wrap {
+  position: relative;
+  perspective: 1500px;
+}
+.mockup {
+  background: var(--dark);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25), 0 0 0 1px var(--border);
+  transform: rotateY(-8deg) rotateX(2deg);
+  transition: transform 0.4s ease;
+}
+.mockup:hover {
+  transform: rotateY(-4deg) rotateX(1deg);
+}
+.mockup-bar {
+  display: flex;
+  gap: 6px;
+  padding: 6px 4px 12px;
+}
+.mockup-bar span {
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: #333;
+}
+.mockup-bar span:nth-child(1) { background: #FF5F57; }
+.mockup-bar span:nth-child(2) { background: #FEBC2E; }
+.mockup-bar span:nth-child(3) { background: #28C840; }
+.mockup-screen {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.mockup-tabs {
+  display: flex;
+  background: var(--soft-bg);
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 600;
+}
+.mockup-tab {
+  padding: 8px 12px;
+  color: var(--text-soft);
+  border-right: 1px solid var(--border);
+}
+.mockup-tab.active {
+  background: var(--white);
+  color: var(--green-mid);
+  border-bottom: 2px solid var(--green);
+}
+.mockup-content {
+  padding: 12px;
+}
+.mockup-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--black);
+}
+.mockup-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.mockup-stat {
+  background: var(--soft-bg);
+  padding: 8px;
+  border-radius: 6px;
+  text-align: center;
+}
+.mockup-stat-num {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green-mid);
+  line-height: 1;
+}
+.mockup-stat-label {
+  font-size: 9px;
+  color: var(--text-mute);
+  margin-top: 2px;
+}
+.mockup-table {
+  font-size: 10px;
+  width: 100%;
+  border-collapse: collapse;
+}
+.mockup-table th {
+  background: var(--black);
+  color: var(--green-bright);
+  text-align: left;
+  padding: 5px 6px;
+  font-weight: 600;
+}
+.mockup-table td {
+  padding: 5px 6px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-soft);
+}
+.mockup-table tr:nth-child(even) td {
+  background: var(--soft-bg);
+}
+.cell-green { color: var(--green-mid); font-weight: 600; }
+
+/* Floating stats */
+.float-stat {
+  position: absolute;
+  background: var(--white);
+  padding: 14px 18px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.float-1 {
+  top: 10%;
+  left: -10px;
+  animation-delay: 0s;
+}
+.float-2 {
+  bottom: 10%;
+  right: -10px;
+  animation-delay: 1.5s;
+}
+.float-icon {
+  width: 38px;
+  height: 38px;
+  background: var(--green-soft);
+  color: var(--green-mid);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.float-label {
+  color: var(--text-mute);
+  font-size: 11px;
+  font-weight: 500;
+}
+.float-value {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--black);
+}
+
+@media (max-width: 768px) {
+  .float-1, .float-2 { display: none; }
+  .mockup { transform: none; }
+}
+
 /* ============ SECTIONS ============ */
 .section {
   padding: 80px 0;
@@ -266,6 +452,10 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
 .section h2 .green {
   color: var(--green-mid);
 }
+.section-sub {
+  font-size: 17px;
+  color: var(--text-soft);
+}
 
 /* ============ PRODUCT GRID ============ */
 .products {
@@ -290,9 +480,25 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
   color: var(--white);
 }
+.product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  padding: 1px;
+  background: linear-gradient(135deg, transparent, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: background 0.3s;
+}
 .product-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 50px rgba(0,255,136,0.25), 0 0 0 1px var(--green);
+}
+.product-card:hover::before {
+  background: linear-gradient(135deg, var(--green-bright), transparent 60%);
 }
 .product-image {
   aspect-ratio: 16/10;
@@ -301,12 +507,32 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   display: flex;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid #1F1F1F;
   overflow: hidden;
+}
+.product-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,255,136,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.6;
+}
+.product-image::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0,255,136,0.3) 0%, transparent 70%);
+  filter: blur(20px);
 }
 .product-emoji {
   font-size: 64px;
   position: relative;
   z-index: 1;
+  filter: drop-shadow(0 0 16px var(--green-glow));
 }
 .product-badge {
   position: absolute;
@@ -318,282 +544,2635 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   font-size: 11px;
   font-weight: 700;
   z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  box-shadow: 0 0 12px var(--green-glow);
 }
-.product-body { padding: 22px; }
-.product-cat { font-size: 11px; color: var(--green-bright); font-weight: 600; margin-bottom: 8px; }
-.product-title { font-size: 19px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
-.product-desc { font-size: 14px; color: #9CA3AF; margin-bottom: 14px; line-height: 1.6; }
-.product-rating { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #9CA3AF; margin-bottom: 14px; }
-.stars { color: var(--gold); }
-.product-foot { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid #1F1F1F; }
-.price-old { font-size: 12px; color: var(--text-mute); text-decoration: line-through; display: block; }
-.price-now { font-size: 22px; font-weight: 700; color: var(--green-bright); }
-.product-buy { background: var(--green-bright); color: var(--black); padding: 8px 14px; border-radius: 8px; font-weight: 700; font-size: 13px; }
+.product-body {
+  padding: 22px;
+}
+.product-cat {
+  font-size: 11px;
+  color: var(--green-bright);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+.product-title {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  color: var(--white);
+}
+.product-desc {
+  font-size: 14px;
+  color: #9CA3AF;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #9CA3AF;
+  margin-bottom: 14px;
+}
+.stars { color: var(--gold); letter-spacing: 1px; }
+.product-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid #1F1F1F;
+}
+.price-old {
+  font-size: 12px;
+  color: var(--text-mute);
+  text-decoration: line-through;
+  display: block;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.price-now {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--green-bright);
+  line-height: 1;
+}
+.product-buy {
+  background: var(--green-bright);
+  color: var(--black);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+.product-card:hover .product-buy {
+  background: var(--white);
+  box-shadow: 0 0 12px var(--green-glow);
+}
+.show-more-wrap {
+  text-align: center;
+  margin-top: 32px;
+}
 
-/* ============ MODAL & CHECKOUT ============ */
+/* ============ FEATURES ============ */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 640px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .features-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.feature {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 28px;
+  border-radius: var(--radius);
+  transition: all 0.25s;
+}
+.feature:hover {
+  border-color: var(--green);
+  box-shadow: 0 8px 24px rgba(0,230,118,0.1);
+  transform: translateY(-4px);
+}
+.feature-icon {
+  width: 52px; height: 52px;
+  background: var(--green-soft);
+  color: var(--green-mid);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 18px;
+}
+.feature h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.feature p {
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ============ HOW IT WORKS ============ */
+.how {
+  background: var(--black);
+  color: var(--white);
+}
+.how .section-tag {
+  background: var(--green-bright);
+  color: var(--black);
+}
+.how h2 { color: var(--white); }
+.how .section-sub { color: rgba(255,255,255,0.7); }
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 640px) { .steps-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .steps-grid { grid-template-columns: repeat(4, 1fr); } }
+.step {
+  background: var(--dark-card);
+  border: 1px solid #1F1F1F;
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  transition: all 0.25s;
+}
+.step:hover {
+  border-color: var(--green);
+  box-shadow: 0 0 32px rgba(0,255,136,0.15);
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--green-bright);
+  color: var(--black);
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+.step h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--white);
+  font-weight: 700;
+}
+.step p {
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ============ REVIEWS ============ */
+.reviews {
+  background: var(--off-white);
+}
+.reviews-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 36px;
+}
+.reviews-summary {
+  background: var(--white);
+  padding: 24px 32px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.review-avg {
+  text-align: center;
+}
+.review-avg-num {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--green-mid);
+  line-height: 1;
+}
+.review-avg-stars {
+  color: var(--gold);
+  font-size: 18px;
+  letter-spacing: 2px;
+  margin: 6px 0;
+}
+.review-avg-count {
+  font-size: 13px;
+  color: var(--text-mute);
+}
+.write-review-btn {
+  background: var(--green-mid);
+  color: var(--white);
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.write-review-btn:hover {
+  background: var(--black);
+  box-shadow: 0 0 16px var(--green-glow);
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 640px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
+.review {
+  background: var(--white);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.review-stars {
+  color: var(--gold);
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.review-text {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.review-avatar {
+  width: 40px; height: 40px;
+  background: var(--green-soft);
+  color: var(--green-mid);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.review-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+.review-meta {
+  font-size: 12px;
+  color: var(--text-mute);
+}
+
+/* ============ CTA FINAL ============ */
+.cta-final {
+  padding: 100px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, var(--black) 0%, #0A1810 100%);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.cta-final::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,255,136,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.cta-final::after {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(0,255,136,0.15) 0%, transparent 70%);
+  filter: blur(40px);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.cta-final-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.cta-final h2 {
+  font-size: clamp(28px, 5vw, 44px);
+  margin-bottom: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.cta-final h2 .green {
+  color: var(--green-bright);
+  text-shadow: 0 0 24px var(--green-glow);
+}
+.cta-final p {
+  font-size: 17px;
+  margin-bottom: 32px;
+  opacity: 0.85;
+  line-height: 1.7;
+}
+.cta-final .btn-green {
+  padding: 18px 36px;
+  font-size: 16px;
+  min-height: 60px;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 48px 0 24px;
+  border-top: 1px solid #1F1F1F;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+@media (min-width: 640px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
+.footer-brand .logo { color: var(--white); margin-bottom: 14px; }
+.footer-brand p {
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  max-width: 320px;
+  line-height: 1.7;
+}
+.footer-col h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+  color: var(--green-bright);
+  font-weight: 700;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 8px; }
+.footer-col a, .footer-col button {
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+  transition: color 0.2s;
+  background: none;
+  padding: 0;
+}
+.footer-col a:hover, .footer-col button:hover { color: var(--green-bright); }
+.footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ============ MODAL ============ */
 .modal-bg {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(6px); z-index: 1000;
-  display: none; align-items: flex-start; justify-content: center;
-  padding: 20px; overflow-y: auto;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
 }
 .modal-bg.show { display: flex; }
 .modal {
-  background: var(--white); border-radius: var(--radius-lg);
-  max-width: 720px; width: 100%; margin: 20px auto;
-  overflow: hidden; box-shadow: var(--shadow-lg);
-  position: relative; animation: slideUp 0.3s ease;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  max-width: 720px;
+  width: 100%;
+  margin: 20px auto;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  animation: slideUp 0.3s ease;
 }
-@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 .modal-close {
-  position: absolute; top: 16px; right: 16px;
-  width: 36px; height: 36px; background: var(--soft-bg);
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 36px; height: 36px;
+  background: var(--soft-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
   z-index: 10;
+  transition: all 0.2s;
+}
+.modal-close:hover {
+  background: var(--black);
+  color: var(--white);
 }
 
-.checkout-step { padding: 32px; }
-.checkout-title { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
-.checkout-sub { color: var(--text-soft); margin-bottom: 24px; font-size: 14px; }
+/* Product Detail */
+.pd-hero {
+  background: linear-gradient(135deg, var(--black) 0%, #0A1810 100%);
+  color: var(--white);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+}
+.pd-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,255,136,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.pd-hero-content { position: relative; z-index: 1; }
+.pd-cat {
+  font-size: 11px;
+  color: var(--green-bright);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.pd-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.pd-emoji-large {
+  font-size: 56px;
+  filter: drop-shadow(0 0 20px var(--green-glow));
+  margin-bottom: 12px;
+}
+.pd-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  flex-wrap: wrap;
+}
+.pd-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 16px;
+}
+.pd-price-old {
+  text-decoration: line-through;
+  color: rgba(255,255,255,0.4);
+  font-size: 16px;
+}
+.pd-price-now {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--green-bright);
+}
+.pd-discount {
+  background: var(--green-bright);
+  color: var(--black);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.pd-body {
+  padding: 32px;
+}
+.pd-section {
+  margin-bottom: 28px;
+}
+.pd-section h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pd-section h3 .icon {
+  width: 32px; height: 32px;
+  background: var(--green-soft);
+  color: var(--green-mid);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.pd-section p {
+  color: var(--text-soft);
+  line-height: 1.8;
+  font-size: 15px;
+}
+.pd-list {
+  list-style: none;
+}
+.pd-list li {
+  padding: 10px 0 10px 32px;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.pd-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0; top: 10px;
+  width: 22px; height: 22px;
+  background: var(--green-mid);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+.pd-target {
+  background: var(--green-soft);
+  border: 1px solid rgba(0,230,118,0.2);
+  border-radius: 12px;
+  padding: 18px;
+}
+.pd-target-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--green-mid);
+  margin-bottom: 8px;
+}
+.pd-target-text {
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.pd-cta {
+  position: sticky;
+  bottom: 0;
+  background: var(--white);
+  padding: 16px 32px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.pd-cta-info {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text-soft);
+}
+.pd-cta-info strong {
+  color: var(--green-mid);
+  font-size: 18px;
+  display: block;
+}
 
-.form-group { margin-bottom: 18px; }
-.form-label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; }
-.form-input { width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: 10px; }
-.form-input:focus { border-color: var(--green-mid); outline: none; }
-
-.bank-info {
-  background: var(--dark); color: var(--white);
-  border-radius: 16px; padding: 28px; text-align: center;
+/* ============ CHECKOUT ============ */
+.checkout-step {
+  padding: 32px;
+}
+.checkout-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.checkout-sub {
+  color: var(--text-soft);
   margin-bottom: 24px;
+  font-size: 14px;
 }
-.bank-account-num { font-size: 28px; font-weight: 700; color: var(--green-bright); margin: 10px 0; letter-spacing: 1px; }
+.form-group {
+  margin-bottom: 18px;
+}
+.form-label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.2s;
+  background: var(--white);
+  color: var(--text);
+  font-family: inherit;
+}
+.form-input:focus, .form-textarea:focus {
+  outline: none;
+  border-color: var(--green-mid);
+  box-shadow: 0 0 0 4px var(--green-soft);
+}
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+}
+.form-help {
+  font-size: 13px;
+  color: var(--text-mute);
+  margin-top: 6px;
+}
+.order-summary {
+  background: var(--soft-bg);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+.order-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 14px;
+}
+.order-summary-row.total {
+  border-top: 2px solid var(--border-strong);
+  padding-top: 12px;
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.order-summary-row .green { color: var(--green-mid); }
+
+/* Bank info */
+.bank-info {
+  background: linear-gradient(135deg, var(--black) 0%, #0A1810 100%);
+  color: var(--white);
+  border-radius: 16px;
+  padding: 28px;
+  margin: 16px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.bank-info::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,255,136,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.bank-info-content { position: relative; z-index: 1; }
+.bank-logo {
+  display: inline-block;
+  background: var(--green-bright);
+  color: var(--black);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.bank-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.bank-account-num {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--green-bright);
+  margin-bottom: 8px;
+  font-family: 'Courier New', monospace;
+}
+.bank-account-name {
+  font-size: 15px;
+  margin-bottom: 18px;
+  color: rgba(255,255,255,0.85);
+}
+.bank-amount {
+  background: var(--green-bright);
+  color: var(--black);
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.copy-btn {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.copy-btn:hover {
+  background: var(--green-bright);
+  color: var(--black);
+}
+
+.qr-placeholder {
+  width: 180px; height: 180px;
+  margin: 0 auto 16px;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(21, 1fr);
+  grid-template-rows: repeat(21, 1fr);
+  gap: 0;
+}
+.qr-placeholder div {
+  background: transparent;
+}
+.qr-placeholder div.on {
+  background: var(--black);
+}
 
 .upload-zone {
-  border: 2px dashed var(--border-strong); border-radius: 12px;
-  padding: 32px 20px; text-align: center; cursor: pointer;
-  background: var(--soft-bg); transition: 0.2s;
+  border: 2px dashed var(--border-strong);
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--soft-bg);
 }
-.upload-zone:hover { border-color: var(--green-mid); background: var(--green-soft); }
-.upload-preview { max-height: 200px; border-radius: 8px; margin-top: 15px; }
+.upload-zone:hover {
+  border-color: var(--green-mid);
+  background: var(--green-soft);
+}
+.upload-zone.has-file {
+  border-color: var(--green-mid);
+  background: var(--green-soft);
+}
+.upload-icon {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+.upload-text {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.upload-hint {
+  font-size: 13px;
+  color: var(--text-mute);
+}
+.upload-preview {
+  max-width: 100%;
+  max-height: 180px;
+  margin: 12px auto 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
 
-.alert { padding: 14px; border-radius: 10px; font-size: 14px; margin: 15px 0; display: flex; gap: 10px; }
-.alert-info { background: #EFF6FF; color: #1E40AF; }
-.alert-warn { background: #FEF3C7; color: #92400E; }
+.alert {
+  padding: 14px 16px;
+  border-radius: 10px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.alert-icon {
+  flex-shrink: 0;
+  font-size: 18px;
+  margin-top: 1px;
+}
+.alert-info {
+  background: #EFF6FF;
+  color: #1E40AF;
+  border: 1px solid #BFDBFE;
+}
+.alert-success {
+  background: var(--green-soft);
+  color: var(--green-mid);
+  border: 1px solid rgba(0,230,118,0.3);
+}
+.alert-warn {
+  background: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+}
+.alert-danger {
+  background: #FEE2E2;
+  color: #991B1B;
+  border: 1px solid #FECACA;
+}
 
-/* Success Screen */
+/* Success */
+.success-screen {
+  text-align: center;
+  padding: 40px 32px;
+}
 .success-icon {
-  width: 80px; height: 80px; background: var(--green-soft); color: var(--green-mid);
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-size: 40px; margin: 0 auto 20px;
+  width: 80px; height: 80px;
+  background: var(--green-soft);
+  color: var(--green-mid);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin: 0 auto 20px;
+  animation: bounce-in 0.6s;
+}
+@keyframes bounce-in {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+.success-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--green-mid);
+}
+.success-text {
+  color: var(--text-soft);
+  margin-bottom: 24px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.success-info {
+  background: var(--soft-bg);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.success-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 14px;
+}
+.success-info-row strong {
+  color: var(--text);
+}
+
+/* ============ ADMIN ============ */
+.admin-section { padding: 32px; }
+.admin-login {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.admin-login-icon {
+  font-size: 56px;
+  margin-bottom: 14px;
+}
+.admin-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 20px;
+}
+.admin-tab {
+  padding: 12px 18px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-soft);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+.admin-tab.active {
+  color: var(--green-mid);
+  border-bottom-color: var(--green);
+}
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.admin-table th {
+  text-align: left;
+  padding: 12px;
+  background: var(--soft-bg);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+.admin-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.admin-table tr:hover td {
+  background: var(--soft-bg);
+}
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.status-pending {
+  background: #FEF3C7;
+  color: #92400E;
+}
+.status-paid {
+  background: var(--green-soft);
+  color: var(--green-mid);
+}
+.status-resent {
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+.status-failed {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+.btn-small {
+  padding: 6px 12px;
+  font-size: 12px;
+  min-height: auto;
+  border-radius: 6px;
+}
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-mute);
+}
+.order-detail-section {
+  background: var(--soft-bg);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+.order-detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.order-detail-row:last-child { border-bottom: none; }
+.order-detail-row strong { font-weight: 600; }
+.slip-image {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin: 12px 0;
+}
+
+.message-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+.message-card.unread {
+  border-color: var(--green-mid);
+  background: var(--green-soft);
+}
+.message-meta {
+  font-size: 12px;
+  color: var(--text-mute);
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.message-text {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.reply-thread {
+  background: var(--soft-bg);
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+.reply-item {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.reply-item:last-child { border-bottom: none; }
+.reply-from {
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--green-mid);
+  margin-bottom: 4px;
 }
 
 /* Toast */
 .toast {
-  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-  background: var(--black); color: var(--white); padding: 12px 24px;
-  border-radius: 999px; z-index: 2000; display: none;
+  position: fixed;
+  bottom: 24px; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--black);
+  color: var(--white);
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 2000;
+  opacity: 0;
+  transition: all 0.3s;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.toast.show { display: block; animation: fadeInUp 0.3s; }
-@keyframes fadeInUp { from { opacity: 0; transform: translate(-50%, 20px); } to { opacity: 1; transform: translate(-50%, 0); } }
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.toast.success {
+  background: var(--green-mid);
+}
+.toast.error {
+  background: var(--red);
+}
 
+/* Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Util */
+.text-center { text-align: center; }
+.mt-2 { margin-top: 8px; }
+.mt-3 { margin-top: 12px; }
+.mt-4 { margin-top: 16px; }
 .hidden { display: none !important; }
+
+/* Star rating input */
+.star-rating-input {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+.star-rating-input button {
+  font-size: 32px;
+  color: #D1D5DB;
+  transition: all 0.15s;
+  padding: 0;
+}
+.star-rating-input button.active,
+.star-rating-input button:hover,
+.star-rating-input button:hover ~ button {
+  color: var(--gold);
+}
+.star-rating-input.set button.active,
+.star-rating-input.set button:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+  .section { padding: 56px 0; }
+  .hero { padding: 32px 0 56px; }
+  .checkout-step, .pd-body, .admin-section { padding: 24px 20px; }
+  .pd-hero { padding: 28px 20px; }
+  .pd-cta { padding: 14px 20px; flex-direction: column; }
+  .pd-cta .btn { width: 100%; }
+  .modal { margin: 0; border-radius: 0; min-height: 100vh; }
+  .reviews-summary { padding: 18px 20px; gap: 16px; }
+  .review-avg-num { font-size: 36px; }
+  .footer-grid { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
 
+<!-- ============ NAV ============ -->
 <nav class="nav">
   <div class="nav-inner">
-    <div class="logo" onclick="location.reload()">
+    <div class="logo" onclick="goHome()">
       <span class="logo-mark">s</span>
       <span>sumsheets</span>
     </div>
     <div class="nav-links">
-      <a class="nav-link" href="#templates-section">Templates</a>
+      <a class="nav-link" onclick="scrollTo('templates-section')">Templates</a>
+      <a class="nav-link" onclick="scrollTo('reviews-section')">รีวิว</a>
       <button class="nav-cta" onclick="scrollTo('templates-section')">เริ่มใช้งาน</button>
     </div>
   </div>
 </nav>
 
+<!-- ============ HERO ============ -->
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
-      <div>
+      <div class="reveal">
         <div class="hero-badge">
           <span class="dot"></span>
-          <span>ใช้งานแล้วกว่า 2,500 ร้านค้า</span>
+          <span>เปิดขายใหม่ ลูกค้ากว่า 2,500 ร้านค้าใช้แล้ว</span>
         </div>
-        <h1>ระบบร้านค้า <span class="green-text">ใช้งานง่าย</span> ในไฟล์เดียว</h1>
-        <p>Templates Google Sheets สำหรับร้านค้าทุกขนาด — ระบบ POS, สต็อก, บัญชี พร้อมใช้ทันที ไม่ต้องเขียนสูตร</p>
+        <h1>
+          ระบบร้านค้า<br>
+          <span class="green-text">ใช้งานง่าย</span> ในไฟล์เดียว
+        </h1>
+        <p>
+          Templates Google Sheets &amp; Excel สำหรับร้านค้าทุกขนาด —
+          ระบบ POS, สต็อก, บัญชี, Invoice, ติดตามลูกค้า
+          ใช้ได้ทันที ไม่ต้องเขียนสูตร
+        </p>
         <div class="hero-actions">
-          <button class="btn btn-primary" onclick="scrollTo('templates-section')">เลือก Template →</button>
+          <button class="btn btn-primary" onclick="scrollTo('templates-section')">
+            เลือก Template <span class="btn-arrow">→</span>
+          </button>
+          <button class="btn btn-secondary" onclick="scrollTo('how-section')">
+            ดูวิธีใช้งาน
+          </button>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <span class="trust-icon">✓</span> Update ฟรีตลอดชีพ
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✓</span> คืนเงินได้ใน 7 วัน
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✓</span> ส่งทันทีหลังชำระ
+          </div>
+        </div>
+      </div>
+
+      <div class="mockup-wrap reveal">
+        <div class="float-stat float-1">
+          <div class="float-icon">💰</div>
+          <div>
+            <div class="float-label">ยอดขายเดือนนี้</div>
+            <div class="float-value">฿128,500</div>
+          </div>
+        </div>
+        <div class="float-stat float-2">
+          <div class="float-icon">📦</div>
+          <div>
+            <div class="float-label">สต็อกคงเหลือ</div>
+            <div class="float-value">847 ชิ้น</div>
+          </div>
+        </div>
+        <div class="mockup">
+          <div class="mockup-bar"><span></span><span></span><span></span></div>
+          <div class="mockup-screen">
+            <div class="mockup-tabs">
+              <div class="mockup-tab active">Dashboard</div>
+              <div class="mockup-tab">ขาย</div>
+              <div class="mockup-tab">สต็อก</div>
+              <div class="mockup-tab">บัญชี</div>
+            </div>
+            <div class="mockup-content">
+              <div class="mockup-title">📊 ภาพรวมร้านค้า — พฤษภาคม 2025</div>
+              <div class="mockup-stats">
+                <div class="mockup-stat">
+                  <div class="mockup-stat-num">128.5K</div>
+                  <div class="mockup-stat-label">ยอดขาย</div>
+                </div>
+                <div class="mockup-stat">
+                  <div class="mockup-stat-num">342</div>
+                  <div class="mockup-stat-label">ออเดอร์</div>
+                </div>
+                <div class="mockup-stat">
+                  <div class="mockup-stat-num">+24%</div>
+                  <div class="mockup-stat-label">โต MoM</div>
+                </div>
+              </div>
+              <table class="mockup-table">
+                <thead>
+                  <tr><th>สินค้า</th><th>ขาย</th><th>กำไร</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>กาแฟดริป</td><td>89</td><td class="cell-green">฿8,900</td></tr>
+                  <tr><td>คุกกี้เนย</td><td>156</td><td class="cell-green">฿6,240</td></tr>
+                  <tr><td>ชาเย็น</td><td>234</td><td class="cell-green">฿18,720</td></tr>
+                  <tr><td>เบเกอรี่</td><td>67</td><td class="cell-green">฿4,690</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ============ TEMPLATES ============ -->
 <section class="section products" id="templates-section">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="section-tag">Templates พร้อมใช้</span>
-      <h2>เลือก Template <span class="green">ที่ใช่สำหรับคุณ</span></h2>
+      <h2>เลือก Template ที่ใช่<br>สำหรับ <span class="green">ร้านของคุณ</span></h2>
+      <p class="section-sub">
+        ทุก Template ออกแบบจากร้านค้าจริง — มีข้อมูลตัวอย่าง
+        สูตรอัตโนมัติ และคู่มือใช้งานครบ
+      </p>
     </div>
+
     <div class="product-grid" id="productGrid"></div>
+
+    <div class="show-more-wrap reveal">
+      <button class="btn btn-secondary" id="showMoreBtn" onclick="toggleShowMore()">
+        ดู Templates เพิ่มเติม <span class="btn-arrow">↓</span>
+      </button>
+    </div>
   </div>
 </section>
 
+<!-- ============ FEATURES ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">ทำไมต้อง sumsheets</span>
+      <h2>ออกแบบมาเพื่อ<br><span class="green">เจ้าของร้าน</span> โดยเฉพาะ</h2>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature reveal">
+        <div class="feature-icon">⚡</div>
+        <h3>ใช้งานได้ทันที</h3>
+        <p>เปิดไฟล์ปุ๊บ พร้อมใช้ปั๊บ ไม่ต้องตั้งค่า ไม่ต้องเขียนสูตร เริ่มทำงานได้ภายใน 5 นาที</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon">🎯</div>
+        <h3>คำนวณอัตโนมัติ</h3>
+        <p>กำไร ขาดทุน สต็อก ภาษี — คำนวณให้หมดทุกอย่าง Dashboard อัปเดตทันทีที่กรอกข้อมูล</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon">📱</div>
+        <h3>ใช้บนมือถือได้</h3>
+        <p>ผ่าน Google Sheets App — บันทึกขายได้ทุกที่ทุกเวลา ไม่ต้องนั่งหน้าคอม</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon">🇹🇭</div>
+        <h3>ภาษาไทยครบ</h3>
+        <p>ทุกหัวข้อ ทุกคำอธิบาย เป็นภาษาไทยทั้งหมด เข้าใจง่ายแม้ไม่เก่ง Excel</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon">🔄</div>
+        <h3>Update ฟรีตลอดชีพ</h3>
+        <p>ซื้อครั้งเดียว ใช้ได้ตลอดไป มี Version ใหม่จะส่ง Email แจ้งทันทีโดยไม่ต้องจ่ายเพิ่ม</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-icon">💚</div>
+        <h3>คืนเงินได้ใน 7 วัน</h3>
+        <p>มั่นใจในคุณภาพ — ถ้าใช้แล้วไม่พอใจ คืนเงินเต็มจำนวน ไม่ถามเหตุผล</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW ============ -->
+<section class="section how" id="how-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">วิธีใช้งาน</span>
+      <h2>เริ่มต้นใน <span style="color:var(--green-bright);">4 ขั้นตอน</span></h2>
+      <p class="section-sub">ตั้งแต่สั่งซื้อจนได้ไฟล์ ใช้เวลาไม่ถึง 5 นาที</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <h3>เลือก Template</h3>
+        <p>เลือก Template ที่ตรงกับธุรกิจ กดปุ่ม "ซื้อเลย"</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <h3>กรอกอีเมล</h3>
+        <p>กรอกอีเมลรับไฟล์ ไม่ต้องสมัครสมาชิก ไม่ต้องเข้าสู่ระบบ</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <h3>โอนเงิน + ส่งสลิป</h3>
+        <p>สแกน QR หรือโอนตรง อัปโหลดสลิป ระบบตรวจสอบอัตโนมัติ</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">4</div>
+        <h3>รับไฟล์ทันที</h3>
+        <p>ระบบส่งไฟล์ + คู่มือใช้งานเข้าอีเมลทันทีหลังตรวจสอบสลิป</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="section reviews" id="reviews-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">รีวิวจากลูกค้าจริง</span>
+      <h2>คนใช้แล้ว <span class="green">ชอบจริง</span></h2>
+    </div>
+
+    <div class="reviews-summary reveal">
+      <div class="review-avg">
+        <div class="review-avg-num" id="avgRating">4.9</div>
+        <div class="review-avg-stars" id="avgStars">★★★★★</div>
+        <div class="review-avg-count" id="reviewCount">จาก 1,247 รีวิว</div>
+      </div>
+      <button class="write-review-btn" onclick="openWriteReview()">
+        ✍️ เขียนรีวิวของคุณ
+      </button>
+    </div>
+
+    <div class="reviews-grid" id="reviewsGrid"></div>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="cta-final">
+  <div class="cta-final-inner reveal">
+    <h2>พร้อมยกระดับ<br><span class="green">ร้านค้าของคุณ</span> หรือยัง?</h2>
+    <p>เริ่มต้นง่าย ๆ ในราคาเริ่มเพียง ฿390 — ใช้ได้ตลอดชีพ Update ฟรี</p>
+    <button class="btn btn-green" onclick="scrollTo('templates-section')">
+      เลือก Template ที่ใช่ <span class="btn-arrow">→</span>
+    </button>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-mark">s</span>
+          <span>sumsheets</span>
+        </div>
+        <p>Templates ระบบร้านค้าคุณภาพสูง ใช้งานง่าย เปลี่ยนวิธีบริหารร้านของคุณ</p>
+      </div>
+      <div class="footer-col">
+        <h4>เกี่ยวกับ</h4>
+        <ul>
+          <li><a onclick="scrollTo('templates-section')">Templates</a></li>
+          <li><a onclick="scrollTo('reviews-section')">รีวิว</a></li>
+          <li><a onclick="openContact()">ติดต่อแอดมิน</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>ระบบ</h4>
+        <ul>
+          <li><button onclick="openAdminLogin()">เข้าหลังบ้าน</button></li>
+          <li><a onclick="openContact()">ปัญหาการสั่งซื้อ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 sumsheets. สำหรับร้านค้าไทย
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MODAL ============ -->
 <div class="modal-bg" id="modal" onclick="if(event.target===this)closeModal()">
   <div class="modal" id="modalContent"></div>
 </div>
 
+<!-- Toast -->
 <div class="toast" id="toast"></div>
 
 <script>
+// ====================================================================
 // DATA
+// ====================================================================
+const ADMIN_PASSWORD = 'admin1234'; // Default admin password
+const BANK = {
+  number: '098-7-903895',
+  bank: 'ธนาคารกรุงเทพ',
+  name: 'ปานดา มูลทา (panda multa)'
+};
+
 const PRODUCTS = [
-  { id: 1, emoji: '🏪', cat: 'ระบบร้านค้า', title: 'ระบบจัดการร้านค้า Pro', price: 890, oldPrice: 1490, rating: 4.9, reviewCount: 847, desc: 'POS + สต็อก + บัญชี ครบในไฟล์เดียว' },
-  { id: 2, emoji: '🛒', cat: 'POS', title: 'ระบบ POS + สต็อกหน้าร้าน', price: 1290, oldPrice: 1990, rating: 4.9, reviewCount: 312, desc: 'ตัดสต็อกอัตโนมัติทุกบิล พร้อม Dashboard' },
-  { id: 3, emoji: '📄', cat: 'เอกสาร', title: 'Invoice & ใบเสร็จ Pro', price: 690, oldPrice: 990, rating: 4.8, reviewCount: 412, desc: 'ออกเอกสารธุรกิจสวยงามใน 30 วินาที' }
+  {
+    id: 1, emoji: '🏪', cat: 'ระบบร้านค้า', badge: 'ขายดีอันดับ 1',
+    title: 'ระบบจัดการร้านค้า Pro',
+    desc: 'POS + สต็อก + บัญชี + ลูกค้า ครบในไฟล์เดียว',
+    price: 890, oldPrice: 1490, rating: 4.9, reviewCount: 847,
+    detail: 'ระบบจัดการร้านค้าแบบครบวงจร ออกแบบมาสำหรับเจ้าของร้านเล็ก-กลาง ไม่ว่าจะเป็นร้านอาหาร ร้านกาแฟ ร้านขายของชำ หรือร้านออนไลน์ คุณจะได้ระบบ POS บันทึกขาย จัดการสต็อกอัตโนมัติ ทำบัญชีรายรับ-รายจ่าย และฐานข้อมูลลูกค้าในไฟล์เดียว',
+    features: [
+      'ระบบ POS บันทึกขาย — กรอกครั้งเดียว ตัดสต็อกอัตโนมัติ',
+      'จัดการสต็อก 500+ รายการ พร้อมแจ้งเตือนเมื่อใกล้หมด',
+      'บัญชีรายรับ-รายจ่าย แยกหมวดหมู่ คำนวณกำไรอัตโนมัติ',
+      'Dashboard สรุปยอดขาย รายวัน รายสัปดาห์ รายเดือน',
+      'ฐานข้อมูลลูกค้า — ติดตามการซื้อซ้ำ ส่งโปรโมชั่น',
+      'ออก Invoice / ใบเสร็จในตัว แค่กดปุ่ม',
+      'Report ภาษีพร้อมใช้ — ส่งให้นักบัญชีได้เลย'
+    ],
+    target: 'เจ้าของร้านอาหาร ร้านกาแฟ ร้านขายของชำ ร้านออนไลน์ ร้านสะดวกซื้อขนาดเล็ก-กลาง ที่ต้องการระบบบริหารแบบครบวงจรในงบประหยัด',
+    helps: 'ช่วยให้คุณรู้ตัวเลขร้านทุกวัน คุมสต็อกไม่ให้ขาดหรือเกิน ตามเก็บเงินลูกค้าได้ครบ และวิเคราะห์ว่าสินค้าตัวไหนทำกำไรจริง'
+  },
+  {
+    id: 2, emoji: '🛒', cat: 'POS', badge: '🆕 ใหม่',
+    title: 'ระบบ POS + สต็อกร้านค้า',
+    desc: 'POS แบบมืออาชีพ ตัดสต็อกอัตโนมัติทุกบิล',
+    price: 1290, oldPrice: 1990, rating: 4.9, reviewCount: 312,
+    detail: 'ระบบ Point of Sale ที่ออกแบบเฉพาะร้านค้าปลีกในไทย รองรับการขายหน้าร้าน บันทึกบิล ตัดสต็อกอัตโนมัติ พิมพ์ใบเสร็จได้ และรองรับการชำระเงินหลายรูปแบบ ทั้งเงินสด โอน บัตร PromptPay',
+    features: [
+      'หน้าจอขาย POS ใช้งานง่าย — เลือกสินค้า กดบันทึก จบ',
+      'ตัดสต็อกอัตโนมัติ ทุกบิล',
+      'รองรับ 1,000+ SKU พร้อม Barcode',
+      'พิมพ์ใบเสร็จ / สลิปได้ทันที',
+      'Multi-payment: เงินสด โอน บัตร PromptPay',
+      'Daily/Monthly Report สรุปยอดขายให้ดูได้ทันที',
+      'Backup ข้อมูลทุกวัน ปลอดภัย'
+    ],
+    target: 'ร้านขายของหน้าร้าน ร้านกาแฟ ร้านอาหาร ร้านเสื้อผ้า ที่ต้องการระบบ POS แบบมืออาชีพในราคาประหยัด ไม่ต้องจ่ายค่าซอฟต์แวร์รายเดือน',
+    helps: 'ช่วยให้การขายหน้าร้านเร็วขึ้น 5 เท่า ไม่มีของหายไปจากสต็อก ลดเวลานับสต็อกท้ายวัน และมีข้อมูลขายชัดเจนทุกวันเพื่อตัดสินใจสั่งของ'
+  },
+  {
+    id: 3, emoji: '📄', cat: 'เอกสาร', badge: '',
+    title: 'Invoice & ใบเสร็จ Pro',
+    desc: 'ออก Invoice + ใบเสร็จมืออาชีพ ใน 30 วินาที',
+    price: 690, oldPrice: 990, rating: 4.8, reviewCount: 412,
+    detail: 'ระบบออกเอกสารธุรกิจครบทุกแบบ Invoice ใบเสร็จ ใบส่งของ ใบกำกับภาษี ใบเสนอราคา ใบลดหนี้ ออกได้สวยงามเป็นมืออาชีพ พร้อมระบบเก็บประวัติทุกใบ ค้นหาและตามได้ตลอด',
+    features: [
+      'ออก Invoice / ใบเสร็จ / ใบกำกับภาษี / ใบเสนอราคา',
+      'คำนวณ VAT 7% อัตโนมัติ',
+      'ใส่โลโก้และข้อมูลร้านได้',
+      'ฐานข้อมูลลูกค้า — ออกซ้ำให้ลูกค้าเก่าได้รวดเร็ว',
+      'รายงานยอดขาย / ยอดค้างชำระ',
+      'Export PDF ส่งทาง LINE / Email ได้เลย',
+      'รองรับเลขที่เอกสารต่อเนื่อง ไม่ซ้ำ'
+    ],
+    target: 'ฟรีแลนซ์ เจ้าของกิจการ SME ร้านค้าออนไลน์ ที่ต้องออกเอกสารให้ลูกค้าเป็นประจำ และต้องการความเป็นมืออาชีพโดยไม่ต้องจ่ายค่าซอฟต์แวร์รายเดือน',
+    helps: 'ช่วยให้ออกเอกสารได้ภายใน 30 วินาที ลูกค้าเชื่อถือมากขึ้น ติดตามยอดค้างชำระได้ครบ และพร้อมให้ข้อมูลภาษีกับนักบัญชี'
+  },
+  {
+    id: 4, emoji: '💰', cat: 'การเงินร้าน', badge: '',
+    title: 'บัญชีร้านค้า Daily',
+    desc: 'บัญชีร้านค้า ทำเองได้ทุกวัน ใช้ 5 นาที',
+    price: 590, oldPrice: 890, rating: 4.7, reviewCount: 528,
+    detail: 'Template บัญชีรายรับ-รายจ่ายสำหรับร้านค้าโดยเฉพาะ บันทึกทุกวันแค่ 5 นาที จะได้รู้ว่ากำไรร้านจริง ๆ เท่าไหร่ ค่าใช้จ่ายไหนเยอะเกินไป และเดือนไหนยอดดี/ยอดตก',
+    features: [
+      'บันทึกรายรับรายจ่ายแยกหมวด',
+      'แยกรายจ่ายประจำ / รายจ่ายผันแปร',
+      'คำนวณกำไรขั้นต้น / กำไรสุทธิ อัตโนมัติ',
+      'Dashboard เทียบเดือนต่อเดือน',
+      'Cash Flow รายวัน / รายเดือน',
+      'รองรับการขายหลายช่องทาง (หน้าร้าน + ออนไลน์)',
+      'Export ส่งให้นักบัญชีได้ทันที'
+    ],
+    target: 'เจ้าของร้านขนาดเล็กที่ทำบัญชีเองได้ ไม่อยากจ่ายค่าโปรแกรมแพง อยากรู้ตัวเลขร้านจริง ๆ และไม่งงเวลาคิดกำไร',
+    helps: 'ช่วยให้รู้กำไรร้านจริง คุมรายจ่ายได้ ตัดสินใจทางการเงินมีหลักฐาน และวางแผนภาษีได้ถูกต้อง'
+  },
+  {
+    id: 5, emoji: '👥', cat: 'CRM', badge: '',
+    title: 'ระบบ CRM ลูกค้า',
+    desc: 'จัดการฐานลูกค้า ส่งโปร เพิ่มยอดซื้อซ้ำ',
+    price: 790, oldPrice: 1190, rating: 4.8, reviewCount: 287,
+    detail: 'ระบบจัดการความสัมพันธ์กับลูกค้า เก็บข้อมูล ติดตามประวัติการซื้อ แบ่งกลุ่มลูกค้า ทำการตลาดเฉพาะกลุ่ม และเพิ่มยอดซื้อซ้ำ — เปลี่ยนลูกค้าใหม่ให้เป็นลูกค้าประจำ',
+    features: [
+      'ฐานข้อมูลลูกค้า 1,000+ คน',
+      'แบ่งกลุ่มลูกค้า: VIP / ประจำ / ใหม่ / Cold',
+      'ประวัติการซื้อแต่ละคน — รู้ว่าซื้ออะไรบ่อย',
+      'แจ้งเตือนวันเกิดลูกค้า / โปรโมชั่น',
+      'คำนวณ Customer Lifetime Value',
+      'ติดตาม follow-up อัตโนมัติ',
+      'Template ข้อความโปรโมชั่นพร้อมส่ง'
+    ],
+    target: 'ร้านค้าที่มีลูกค้าซื้อซ้ำ ร้านบริการ ร้านอาหาร ร้านเสริมสวย คลินิก ที่ต้องการเพิ่มยอดขายโดยไม่ต้องหาลูกค้าใหม่',
+    helps: 'ช่วยเพิ่มยอดซื้อซ้ำของลูกค้า รู้จักลูกค้ามากขึ้น ส่งโปรโมชั่นได้ตรงกลุ่ม ลดค่าโฆษณา และสร้างฐานลูกค้าประจำ'
+  },
+  {
+    id: 6, emoji: '📊', cat: 'Dashboard', badge: '🎁 ลด 50%',
+    title: 'รายงานยอดขาย Dashboard',
+    desc: 'เห็นยอดขาย รายวัน-รายเดือน ในที่เดียว',
+    price: 590, oldPrice: 1190, rating: 4.9, reviewCount: 198,
+    detail: 'Dashboard สรุปยอดขายร้านค้าแบบมืออาชีพ ดูภาพรวมรายวัน รายสัปดาห์ รายเดือน รู้สินค้าขายดี เวลาขายดี เปรียบเทียบเดือนต่อเดือน — ตัดสินใจได้ดีขึ้นด้วยข้อมูล',
+    features: [
+      'Dashboard ภาพรวมยอดขายร้าน',
+      'กราฟแนวโน้มยอดขาย 12 เดือน',
+      'Top 10 สินค้าขายดี / สินค้าขายไม่ออก',
+      'เปรียบเทียบเดือนต่อเดือน YoY',
+      'Heatmap เวลาขายดี (วัน/ชั่วโมง)',
+      'KPIs ครบ: AOV, Total Revenue, Orders',
+      'พิมพ์รายงานสวยงามได้ทันที'
+    ],
+    target: 'ร้านค้าที่อยากตัดสินใจด้วยข้อมูล ไม่ใช่ความรู้สึก เจ้าของร้านที่อยากเห็นภาพรวมเร็ว ๆ และผู้จัดการร้านที่ต้องรายงานให้เจ้าของ',
+    helps: 'ช่วยให้เห็นภาพรวมร้านชัดเจนใน 1 นาที รู้ว่าเดือนไหนต้องเร่ง สินค้าไหนต้องเลิกขาย และตัดสินใจได้เร็วขึ้น'
+  },
+  {
+    id: 7, emoji: '🛍️', cat: 'ขายออนไลน์', badge: '',
+    title: 'ระบบขายออนไลน์ Multi-channel',
+    desc: 'จัดการ Shopee, Lazada, Tiktok ในไฟล์เดียว',
+    price: 990, oldPrice: 1490, rating: 4.8, reviewCount: 234,
+    detail: 'รวมยอดขายและสต็อกจากทุกช่องทาง Shopee, Lazada, TikTok Shop, Facebook, LINE Shopping ในไฟล์เดียว ดู Dashboard รวม คำนวณค่าธรรมเนียมแต่ละแพลตฟอร์ม รู้ว่าขายช่องไหนกำไรดีที่สุด',
+    features: [
+      'รวมยอดขาย Shopee + Lazada + TikTok + FB + LINE',
+      'คำนวณค่าธรรมเนียมแต่ละแพลตฟอร์ม',
+      'สต็อกร่วม — ป้องกันขายเกิน',
+      'รู้ช่องทางไหนกำไรดีจริง',
+      'ติดตามค่าโฆษณาแต่ละแพลตฟอร์ม',
+      'รวม Order ส่งของ',
+      'Report สำหรับคำนวณภาษี'
+    ],
+    target: 'ร้านค้าออนไลน์ที่ขายหลายแพลตฟอร์ม Drop shipper ที่ต้องการเห็นภาพรวมและคุมต้นทุน',
+    helps: 'ช่วยให้รู้ช่องทางกำไรจริง ๆ ลดค่าธรรมเนียมที่ไม่จำเป็น คุมสต็อกไม่ให้ขายเกิน และจัดการออเดอร์ได้รวดเร็ว'
+  },
+  {
+    id: 8, emoji: '🧮', cat: 'คำนวณ', badge: '',
+    title: 'คำนวณต้นทุน + ตั้งราคา',
+    desc: 'คำนวณต้นทุนสินค้า ตั้งราคาให้กำไรชัด',
+    price: 490, oldPrice: 690, rating: 4.7, reviewCount: 156,
+    detail: 'Template คำนวณต้นทุนสินค้าแบบละเอียด รวมค่าวัตถุดิบ ค่าแรง ค่าโสหุ้ย แล้วคำนวณราคาขายที่ให้กำไรตามที่ต้องการ — เลิกตั้งราคาแบบเดา เริ่มมีหลักการ',
+    features: [
+      'คำนวณต้นทุนแบบละเอียดทุกองค์ประกอบ',
+      'รวมค่าวัตถุดิบ + ค่าแรง + ค่าโสหุ้ย',
+      'คำนวณราคาขายตาม Target Margin',
+      'เปรียบเทียบกับราคาตลาด',
+      'Break-even Analysis',
+      'รองรับ 100+ สูตรอาหาร / สินค้า',
+      'อัปเดตต้นทุนรวดเดียว ราคาขายเปลี่ยนทันที'
+    ],
+    target: 'ร้านอาหาร ร้านขนม ร้าน Handmade ผู้ผลิตสินค้า ที่ต้องการตั้งราคาขายแบบมีหลักการและรู้กำไรจริง',
+    helps: 'ช่วยให้ตั้งราคาขายได้ถูกต้อง ไม่ขาดทุนโดยไม่รู้ตัว เห็นกำไรชัด และตัดสินใจได้ว่าเมนูไหนต้องเลิกขาย'
+  },
+  {
+    id: 9, emoji: '👨‍💼', cat: 'พนักงาน', badge: '',
+    title: 'ระบบจัดการพนักงาน',
+    desc: 'ตารางเวร เงินเดือน ลา หยุด ครบในไฟล์เดียว',
+    price: 690, oldPrice: 990, rating: 4.6, reviewCount: 124,
+    detail: 'ระบบจัดการพนักงานสำหรับร้านค้าที่มีลูกน้อง 2-30 คน บันทึกเวลาทำงาน คำนวณเงินเดือน OT จัดตารางเวร และเก็บข้อมูลพนักงานครบทุกคน',
+    features: [
+      'ฐานข้อมูลพนักงาน — เก็บข้อมูลครบ',
+      'ตารางเวร / Schedule รายสัปดาห์',
+      'บันทึกเวลาเข้า-ออก งาน',
+      'คำนวณเงินเดือน + OT อัตโนมัติ',
+      'จัดการวันลา / วันหยุด',
+      'สลิปเงินเดือนพิมพ์ได้',
+      'รายงานต้นทุนพนักงานต่อเดือน'
+    ],
+    target: 'ร้านค้าที่มีลูกน้อง 2-30 คน ร้านอาหาร ร้านกาแฟ ร้านเสริมสวย คลินิก ที่ต้องจัดการเรื่องเงินเดือนและตารางเวร',
+    helps: 'ช่วยให้คำนวณเงินเดือนได้ถูกต้อง ลดข้อผิดพลาด รู้ต้นทุนค่าแรงต่อเดือน และจัดเวรไม่ให้พนักงานทับซ้อนกัน'
+  }
 ];
 
-const BANK = { name: 'ปานดา มูลทา', number: '098-7-903895', bank: 'ธนาคารกรุงเทพ' };
+// Default seed reviews
+const SEED_REVIEWS = [
+  {id:1, name:'คุณนภา ส.', rating:5, text:'ใช้แล้ว 6 เดือน ร้านกาแฟเปลี่ยนไปเยอะมาก รู้ตัวเลขทุกวัน ตัดสินใจสั่งของได้แม่นขึ้น คุ้มมากครับ', product:'ระบบจัดการร้านค้า Pro', date:'15/04/2025'},
+  {id:2, name:'คุณกิตติ ม.', rating:5, text:'ออก Invoice ได้สวยมาก ลูกค้าชม ดูเป็นมืออาชีพขึ้นเยอะ จากที่ใช้กระดาษเขียน ตอนนี้กดทีเดียวจบ', product:'Invoice & ใบเสร็จ Pro', date:'12/04/2025'},
+  {id:3, name:'คุณปริยา ก.', rating:5, text:'POS ใช้ง่ายสุด ๆ พนักงานใหม่สอน 10 นาทีเป็นเลย ตัดสต็อกอัตโนมัติช่วยได้มาก ไม่ต้องนับสต็อกทุกคืน', product:'ระบบ POS + สต็อกร้านค้า', date:'10/04/2025'},
+  {id:4, name:'คุณธนพล ร.', rating:5, text:'ขายของออนไลน์หลายแพลตฟอร์ม ก่อนหน้านี้งงมาก ตอนนี้เห็นช่องทางที่กำไรจริงชัด เลิกขายช่องทางที่ไม่คุ้มได้', product:'ระบบขายออนไลน์ Multi-channel', date:'08/04/2025'},
+  {id:5, name:'คุณวิภา ท.', rating:4, text:'Dashboard สวยงาม เห็นยอดขายชัดมาก แต่อยากให้มีกราฟเพิ่มอีกนิด โดยรวมคุ้มราคาครับ', product:'รายงานยอดขาย Dashboard', date:'05/04/2025'},
+  {id:6, name:'คุณนิรันดร์ ส.', rating:5, text:'ระบบ CRM เปลี่ยนวิธีทำธุรกิจของผมเลย รู้จักลูกค้ามากขึ้น ส่งโปรได้ตรงคน ยอดขายเพิ่ม 30%', product:'ระบบ CRM ลูกค้า', date:'02/04/2025'}
+];
 
-// HELPER
-const $ = s => document.querySelector(s);
-const fmt = n => n.toLocaleString('th-TH');
+// ====================================================================
+// STORAGE
+// ====================================================================
+function getOrders() { try { return JSON.parse(localStorage.getItem('ss_orders') || '[]'); } catch(e) { return []; } }
+function saveOrders(o) { localStorage.setItem('ss_orders', JSON.stringify(o)); }
 
-function toast(msg) {
+function getReviews() {
+  try {
+    let r = JSON.parse(localStorage.getItem('ss_reviews') || 'null');
+    if (!r) { r = SEED_REVIEWS; saveReviews(r); }
+    return r;
+  } catch(e) { return SEED_REVIEWS; }
+}
+function saveReviews(r) { localStorage.setItem('ss_reviews', JSON.stringify(r)); }
+
+function getMessages() { try { return JSON.parse(localStorage.getItem('ss_messages') || '[]'); } catch(e) { return []; } }
+function saveMessages(m) { localStorage.setItem('ss_messages', JSON.stringify(m)); }
+
+function getSlipHashes() { try { return JSON.parse(localStorage.getItem('ss_slips') || '[]'); } catch(e) { return []; } }
+function saveSlipHash(h) {
+  const hashes = getSlipHashes();
+  hashes.push(h);
+  localStorage.setItem('ss_slips', JSON.stringify(hashes));
+}
+
+// ====================================================================
+// HELPERS
+// ====================================================================
+function $(s) { return document.querySelector(s); }
+function $$(s) { return document.querySelectorAll(s); }
+function fmt(n) { return n.toLocaleString('th-TH'); }
+function genId() { return 'ORD-' + Date.now().toString(36).toUpperCase() + Math.random().toString(36).slice(2,5).toUpperCase(); }
+function nowStr() {
+  const d = new Date();
+  return d.toLocaleDateString('th-TH', {year:'numeric', month:'2-digit', day:'2-digit'}) + ' ' + d.toLocaleTimeString('th-TH', {hour:'2-digit', minute:'2-digit'});
+}
+
+function toast(msg, type = '') {
   const t = $('#toast');
   t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 3000);
+  t.className = 'toast show ' + type;
+  setTimeout(() => t.className = 'toast', 3000);
 }
 
 function scrollTo(id) {
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
 }
 
-// RENDER PRODUCTS
+function goHome() {
+  closeModal();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// SHA-256 hash for slip detection
+async function hashFile(file) {
+  const buf = await file.arrayBuffer();
+  const hash = await crypto.subtle.digest('SHA-256', buf);
+  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+// ====================================================================
+// RENDERING
+// ====================================================================
 function renderProducts() {
-  $('#productGrid').innerHTML = PRODUCTS.map(p => `
-    <div class="product-card" onclick="startCheckout(${p.id})">
-      <div class="product-image"><span class="product-emoji">${p.emoji}</span></div>
+  const grid = $('#productGrid');
+  const showAll = grid.dataset.showAll === '1';
+  const list = showAll ? PRODUCTS : PRODUCTS.slice(0, 6);
+  grid.innerHTML = list.map(p => productCardHTML(p)).join('');
+  // Hide button if all shown
+  const btn = $('#showMoreBtn');
+  if (PRODUCTS.length <= 6) {
+    btn.style.display = 'none';
+  } else {
+    btn.innerHTML = showAll
+      ? 'แสดงน้อยลง <span class="btn-arrow">↑</span>'
+      : `ดู Templates เพิ่มเติม (อีก ${PRODUCTS.length - 6}) <span class="btn-arrow">↓</span>`;
+  }
+}
+
+function productCardHTML(p) {
+  return `
+    <div class="product-card reveal" onclick="openProduct(${p.id})">
+      <div class="product-image">
+        ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+        <span class="product-emoji">${p.emoji}</span>
+      </div>
       <div class="product-body">
         <div class="product-cat">${p.cat}</div>
         <h3 class="product-title">${p.title}</h3>
         <p class="product-desc">${p.desc}</p>
+        <div class="product-rating">
+          <span class="stars">${'★'.repeat(Math.floor(p.rating))}</span>
+          <span>${p.rating} (${p.reviewCount.toLocaleString()})</span>
+        </div>
         <div class="product-foot">
           <div>
             <span class="price-old">฿${fmt(p.oldPrice)}</span>
             <span class="price-now">฿${fmt(p.price)}</span>
           </div>
-          <button class="product-buy">ซื้อเลย</button>
+          <button class="product-buy" onclick="event.stopPropagation();startCheckout(${p.id})">ซื้อเลย</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function toggleShowMore() {
+  const grid = $('#productGrid');
+  grid.dataset.showAll = grid.dataset.showAll === '1' ? '0' : '1';
+  renderProducts();
+  if (grid.dataset.showAll === '0') {
+    scrollTo('templates-section');
+  }
+}
+
+function renderReviews() {
+  const reviews = getReviews();
+  const grid = $('#reviewsGrid');
+  // Show top 6 most recent
+  const display = [...reviews].reverse().slice(0, 6);
+  grid.innerHTML = display.map(r => `
+    <div class="review">
+      <div class="review-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
+      <p class="review-text">"${r.text}"</p>
+      <div class="review-author">
+        <div class="review-avatar">${r.name.charAt(0)}</div>
+        <div>
+          <div class="review-name">${r.name}</div>
+          <div class="review-meta">${r.product || ''} · ${r.date}</div>
         </div>
       </div>
     </div>
   `).join('');
+
+  // Update summary
+  const avg = reviews.reduce((s,r)=>s+r.rating,0) / reviews.length;
+  $('#avgRating').textContent = avg.toFixed(1);
+  $('#reviewCount').textContent = `จาก ${reviews.length.toLocaleString()} รีวิว`;
 }
 
-// CHECKOUT FLOW
-let currentOrder = {};
+// ====================================================================
+// MODAL SYSTEM
+// ====================================================================
+function openModal(html) {
+  $('#modalContent').innerHTML = html;
+  $('#modal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+  $('#modal').scrollTop = 0;
+}
+function closeModal() {
+  $('#modal').classList.remove('show');
+  document.body.style.overflow = '';
+}
 
-function startCheckout(id) {
+// ====================================================================
+// PRODUCT DETAIL
+// ====================================================================
+function openProduct(id) {
   const p = PRODUCTS.find(x => x.id === id);
-  currentOrder = { product: p, orderId: 'ORD-' + Math.random().toString(36).substr(2, 9).toUpperCase() };
-  showEmailStep();
+  if (!p) return;
+  const discount = Math.round((1 - p.price / p.oldPrice) * 100);
+
+  openModal(`
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="pd-hero">
+      <div class="pd-hero-content">
+        <div class="pd-emoji-large">${p.emoji}</div>
+        <div class="pd-cat">${p.cat}</div>
+        <h2 class="pd-title">${p.title}</h2>
+        <div class="pd-rating-row">
+          <span class="stars">${'★'.repeat(Math.floor(p.rating))}</span>
+          <span>${p.rating} · ${p.reviewCount.toLocaleString()} รีวิว</span>
+        </div>
+        <div class="pd-price-row">
+          <span class="pd-price-old">฿${fmt(p.oldPrice)}</span>
+          <span class="pd-price-now">฿${fmt(p.price)}</span>
+          <span class="pd-discount">ลด ${discount}%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pd-body">
+      <div class="pd-section">
+        <h3><span class="icon">📌</span> เกี่ยวกับ Template นี้</h3>
+        <p>${p.detail}</p>
+      </div>
+
+      <div class="pd-section">
+        <h3><span class="icon">🎯</span> เหมาะสำหรับใคร</h3>
+        <div class="pd-target">
+          <div class="pd-target-title">กลุ่มผู้ใช้</div>
+          <div class="pd-target-text">${p.target}</div>
+        </div>
+      </div>
+
+      <div class="pd-section">
+        <h3><span class="icon">💡</span> ช่วยคุณยังไง</h3>
+        <p>${p.helps}</p>
+      </div>
+
+      <div class="pd-section">
+        <h3><span class="icon">✨</span> ฟีเจอร์ที่ได้รับ</h3>
+        <ul class="pd-list">
+          ${p.features.map(f => `<li>${f}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="pd-section">
+        <h3><span class="icon">📦</span> ในแพ็กเกจประกอบด้วย</h3>
+        <ul class="pd-list">
+          <li>ไฟล์ Google Sheets + Excel (.xlsx) พร้อมใช้</li>
+          <li>คู่มือการใช้งานภาษาไทย (PDF)</li>
+          <li>วิดีโอสอนติดตั้งและใช้งาน</li>
+          <li>Template ตัวอย่างพร้อมข้อมูล demo</li>
+          <li>Update ฟรีตลอดอายุการใช้งาน</li>
+          <li>Email Support 7 วันทำการ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pd-cta">
+      <div class="pd-cta-info">
+        <strong>฿${fmt(p.price)}</strong>
+        ราคาพิเศษ — ส่งทันทีหลังโอน
+      </div>
+      <button class="btn btn-green" onclick="startCheckout(${p.id})">
+        ซื้อเลย <span class="btn-arrow">→</span>
+      </button>
+    </div>
+  `);
 }
 
-function showEmailStep() {
+// ====================================================================
+// CHECKOUT FLOW
+// ====================================================================
+let currentCheckout = null;
+
+function startCheckout(productId) {
+  const p = PRODUCTS.find(x => x.id === productId);
+  if (!p) return;
+
+  currentCheckout = {
+    product: p,
+    orderId: genId(),
+    timestamp: Date.now(),
+    email: '',
+    slipHash: null,
+    slipDataUrl: null,
+    slipAmount: 0
+  };
+
+  showCheckoutEmailStep();
+}
+
+function showCheckoutEmailStep() {
+  const p = currentCheckout.product;
   openModal(`
+    <button class="modal-close" onclick="closeModal()">×</button>
     <div class="checkout-step">
-      <button class="modal-close" onclick="closeModal()">×</button>
-      <h2 class="checkout-title">📧 รับไฟล์ผ่านอีเมล</h2>
-      <p class="checkout-sub">ระบบจะส่ง Template ไปยังอีเมลนี้ทันทีหลังแจ้งโอน</p>
-      <div class="form-group">
-        <label class="form-label">อีเมลของคุณ</label>
-        <input type="email" class="form-input" id="emailInput" placeholder="example@email.com">
+      <h2 class="checkout-title">📧 กรอกอีเมลรับไฟล์</h2>
+      <p class="checkout-sub">ระบบจะส่งไฟล์ Template และคู่มือการติดตั้งไปทางอีเมลทันทีหลังตรวจสอบสลิป</p>
+
+      <div class="order-summary">
+        <div class="order-summary-row">
+          <span>${p.title}</span>
+          <span>฿${fmt(p.price)}</span>
+        </div>
+        <div class="order-summary-row total">
+          <span>รวมทั้งหมด</span>
+          <span class="green">฿${fmt(p.price)}</span>
+        </div>
       </div>
-      <button class="btn btn-primary btn-block" onclick="goToPayment()">ดำเนินการต่อ →</button>
+
+      <div class="form-group">
+        <label class="form-label">อีเมลของคุณ <span style="color:var(--red)">*</span></label>
+        <input type="email" class="form-input" id="emailInput" placeholder="example@email.com" required>
+        <div class="form-help">ตรวจสอบให้แน่ใจว่าถูกต้อง — ระบบจะส่งไฟล์เข้าอีเมลนี้</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">ยืนยันอีเมลอีกครั้ง <span style="color:var(--red)">*</span></label>
+        <input type="email" class="form-input" id="emailConfirm" placeholder="example@email.com" required>
+      </div>
+
+      <div class="alert alert-info">
+        <span class="alert-icon">ℹ️</span>
+        <div>หากใส่อีเมลผิดสามารถติดต่อแอดมินได้ที่หน้า "ติดต่อแอดมิน" — กรุณาเก็บเลขที่คำสั่งซื้อ <strong>${currentCheckout.orderId}</strong> ไว้</div>
+      </div>
+
+      <button class="btn btn-primary btn-block" onclick="goToPayment()">
+        ดำเนินการต่อ <span class="btn-arrow">→</span>
+      </button>
     </div>
   `);
 }
 
 function goToPayment() {
-  const email = $('#emailInput').value;
-  if (!email.includes('@')) return toast('กรุณากรอกอีเมลที่ถูกต้อง');
-  currentOrder.email = email;
+  const email = $('#emailInput').value.trim();
+  const confirm = $('#emailConfirm').value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!email || !emailRegex.test(email)) {
+    toast('กรุณากรอกอีเมลที่ถูกต้อง', 'error');
+    return;
+  }
+  if (email !== confirm) {
+    toast('อีเมลไม่ตรงกัน กรุณาตรวจสอบ', 'error');
+    return;
+  }
+
+  currentCheckout.email = email;
   showPaymentStep();
 }
 
+function generateQRCells() {
+  // Generate a fake but realistic-looking QR code pattern
+  const size = 21;
+  let html = '';
+  // Use deterministic pattern with corners
+  const corners = (r,c) => (r<7 && c<7) || (r<7 && c>=14) || (r>=14 && c<7);
+  const cornerOn = (r,c) => {
+    if (r===0||r===6||c===0||c===6 && r<7 && c<7) return true;
+    if (r===0||r===6||c===14||c===20 && r<7 && c>=14) return true;
+    if (r===14||r===20||c===0||c===6 && r>=14 && c<7) return true;
+    if (r>=2 && r<=4 && c>=2 && c<=4) return true;
+    if (r>=2 && r<=4 && c>=16 && c<=18) return true;
+    if (r>=16 && r<=18 && c>=2 && c<=4) return true;
+    return false;
+  };
+  for (let r = 0; r < size; r++) {
+    for (let c = 0; c < size; c++) {
+      let on = false;
+      if (corners(r,c)) on = cornerOn(r,c);
+      else on = ((r * 7 + c * 13 + r*c) % 5) < 2;
+      html += `<div class="${on ? 'on' : ''}"></div>`;
+    }
+  }
+  return html;
+}
+
 function showPaymentStep() {
+  const p = currentCheckout.product;
   openModal(`
+    <button class="modal-close" onclick="closeModal()">×</button>
     <div class="checkout-step">
-      <button class="modal-close" onclick="closeModal()">×</button>
       <h2 class="checkout-title">💳 ชำระเงิน</h2>
+      <p class="checkout-sub">โอนเงินตามจำนวนด้านล่าง แล้วอัปโหลดสลิปเพื่อยืนยัน</p>
+
+      <div class="order-summary">
+        <div class="order-summary-row">
+          <span>เลขที่คำสั่งซื้อ</span>
+          <span><strong>${currentCheckout.orderId}</strong></span>
+        </div>
+        <div class="order-summary-row">
+          <span>${p.title}</span>
+          <span>฿${fmt(p.price)}</span>
+        </div>
+        <div class="order-summary-row">
+          <span>อีเมลรับไฟล์</span>
+          <span>${currentCheckout.email}</span>
+        </div>
+        <div class="order-summary-row total">
+          <span>ยอดที่ต้องโอน</span>
+          <span class="green">฿${fmt(p.price)}</span>
+        </div>
+      </div>
+
       <div class="bank-info">
-        <p>${BANK.bank}</p>
-        <div class="bank-account-num" id="accNum">${BANK.number}</div>
-        <p>${BANK.name}</p>
-        <h2 style="color:var(--green-bright); margin-top:10px;">ยอดโอน: ฿${fmt(currentOrder.product.price)}</h2>
+        <div class="bank-info-content">
+          <div class="bank-logo">PromptPay / โอนเงิน</div>
+          <div class="qr-placeholder">${generateQRCells()}</div>
+          <div class="bank-name">${BANK.bank}</div>
+          <div class="bank-account-num">${BANK.number}</div>
+          <div class="bank-account-name">${BANK.name}</div>
+          <div class="bank-amount">฿${fmt(p.price)}</div>
+          <button class="copy-btn" onclick="copyAccount()">📋 คัดลอกเลขบัญชี</button>
+        </div>
       </div>
-      <div class="alert alert-info">กรุณาโอนเงินตามยอด และอัปโหลดสลิปด้านล่าง</div>
-      <div class="upload-zone" onclick="$('#fileInput').click()">
-        <p id="uploadText">📷 คลิกเพื่ออัปโหลดสลิป</p>
-        <img id="preview" class="upload-preview hidden">
+
+      <div class="alert alert-warn">
+        <span class="alert-icon">⚠️</span>
+        <div><strong>โอนเงินตามยอดที่ระบุเท่านั้น</strong> — ระบบจะตรวจสอบยอดและเวลาในสลิปอัตโนมัติ ป้องกันการใช้สลิปซ้ำ</div>
       </div>
-      <input type="file" id="fileInput" class="hidden" onchange="handleFile(this)">
-      <button class="btn btn-green btn-block" style="margin-top:20px" onclick="verifySlip()">ยืนยันการโอน →</button>
+
+      <h3 style="font-size:18px;font-weight:700;margin:24px 0 12px;">📤 อัปโหลดสลิปการโอน</h3>
+
+      <div class="form-group">
+        <label class="form-label">ยอดที่โอน (บาท) <span style="color:var(--red)">*</span></label>
+        <input type="number" class="form-input" id="slipAmount" placeholder="${p.price}" step="0.01">
+        <div class="form-help">กรอกยอดที่โอนจริงเพื่อตรวจสอบ</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">รูปสลิปการโอน <span style="color:var(--red)">*</span></label>
+        <div class="upload-zone" id="uploadZone" onclick="$('#slipFile').click()">
+          <div class="upload-icon">📷</div>
+          <div class="upload-text" id="uploadText">คลิกเพื่ออัปโหลดสลิป</div>
+          <div class="upload-hint" id="uploadHint">รองรับ JPG, PNG ขนาดไม่เกิน 5MB</div>
+          <img id="slipPreview" class="upload-preview hidden">
+        </div>
+        <input type="file" id="slipFile" accept="image/*" style="display:none;" onchange="handleSlipUpload(event)">
+      </div>
+
+      <div class="alert alert-info">
+        <span class="alert-icon">🔒</span>
+        <div>ระบบตรวจสอบ: ยอดต้องตรงกับ <strong>฿${fmt(p.price)}</strong>, เวลาในสลิปต้องอยู่หลังจากเริ่มสั่งซื้อ และสลิปต้องไม่เคยใช้มาก่อน</div>
+      </div>
+
+      <button class="btn btn-green btn-block mt-4" onclick="verifyAndPay()">
+        ✓ ตรวจสอบและยืนยันการโอน
+      </button>
     </div>
   `);
 }
 
-function handleFile(input) {
-  const file = input.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      $('#preview').src = e.target.result;
-      $('#preview').classList.remove('hidden');
-      $('#uploadText').classList.add('hidden');
-      currentOrder.slip = e.target.result;
-    };
-    reader.readAsDataURL(file);
+function copyAccount() {
+  navigator.clipboard.writeText(BANK.number).then(() => {
+    toast('คัดลอกเลขบัญชีแล้ว!', 'success');
+  }).catch(() => {
+    toast('ไม่สามารถคัดลอกได้', 'error');
+  });
+}
+
+async function handleSlipUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  if (file.size > 5 * 1024 * 1024) {
+    toast('ไฟล์ใหญ่เกิน 5MB', 'error');
+    return;
+  }
+
+  // Show preview
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    $('#slipPreview').src = ev.target.result;
+    $('#slipPreview').classList.remove('hidden');
+    $('#uploadText').textContent = '✓ ' + file.name;
+    $('#uploadHint').textContent = 'คลิกเพื่อเปลี่ยนรูป';
+    $('#uploadZone').classList.add('has-file');
+    currentCheckout.slipDataUrl = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+
+  // Hash for duplicate detection
+  try {
+    currentCheckout.slipHash = await hashFile(file);
+  } catch (err) {
+    console.error('Hash error:', err);
   }
 }
 
-function verifySlip() {
-  if (!currentOrder.slip) return toast('กรุณาอัปโหลดสลิป');
-  
-  // Simulate AI Verification
-  toast('正在ตรวจสอบสลิป...');
-  setTimeout(() => {
-    showSuccess();
-  }, 2000);
+async function verifyAndPay() {
+  const p = currentCheckout.product;
+  const slipAmount = parseFloat($('#slipAmount').value);
+
+  // Validation
+  if (!currentCheckout.slipDataUrl) {
+    toast('กรุณาอัปโหลดสลิป', 'error');
+    return;
+  }
+  if (!slipAmount || isNaN(slipAmount)) {
+    toast('กรุณากรอกยอดที่โอน', 'error');
+    return;
+  }
+
+  // Show "verifying" loading
+  const btn = event.target;
+  btn.disabled = true;
+  btn.innerHTML = '<span style="display:inline-block;animation:pulse 1s infinite">⏳</span> กำลังตรวจสอบสลิป...';
+
+  await new Promise(r => setTimeout(r, 1500)); // Simulate checking time
+
+  // Check 1: Amount match
+  if (Math.abs(slipAmount - p.price) > 0.01) {
+    showVerifyError(`ยอดในสลิปไม่ตรง — ต้องโอน ฿${fmt(p.price)} แต่กรอกมา ฿${fmt(slipAmount)}`);
+    return;
+  }
+
+  // Check 2: Time check (simulated — slip time should be after order start)
+  // In real system, OCR slip time. Here we check upload time vs order time.
+  const uploadTime = Date.now();
+  const orderTime = currentCheckout.timestamp;
+  const timeDiff = uploadTime - orderTime;
+
+  if (timeDiff < 0) {
+    showVerifyError('เวลาในสลิปก่อนเวลาสั่งซื้อ');
+    return;
+  }
+  if (timeDiff > 60 * 60 * 1000) { // > 1 hour
+    showVerifyError('สลิปนี้เกิน 1 ชั่วโมงจากการสั่งซื้อ — กรุณาสั่งซื้อใหม่');
+    return;
+  }
+
+  // Check 3: Duplicate slip detection
+  const existingHashes = getSlipHashes();
+  if (currentCheckout.slipHash && existingHashes.includes(currentCheckout.slipHash)) {
+    showVerifyError('สลิปนี้เคยถูกใช้แล้ว — กรุณาใช้สลิปใหม่');
+    return;
+  }
+
+  // ✓ All checks pass — save order
+  const order = {
+    id: currentCheckout.orderId,
+    timestamp: currentCheckout.timestamp,
+    completedAt: Date.now(),
+    productId: p.id,
+    productTitle: p.title,
+    amount: p.price,
+    slipAmount: slipAmount,
+    email: currentCheckout.email,
+    slipDataUrl: currentCheckout.slipDataUrl,
+    slipHash: currentCheckout.slipHash,
+    status: 'paid',
+    deliveredEmails: [{email: currentCheckout.email, time: Date.now()}]
+  };
+
+  const orders = getOrders();
+  orders.push(order);
+  saveOrders(orders);
+  if (currentCheckout.slipHash) saveSlipHash(currentCheckout.slipHash);
+
+  // Simulate sending email
+  await new Promise(r => setTimeout(r, 800));
+
+  showSuccessStep(order);
 }
 
-function showSuccess() {
+function showVerifyError(msg) {
+  toast(msg, 'error');
+  setTimeout(() => {
+    showPaymentStep();
+  }, 100);
+  // Keep current data
+  setTimeout(() => {
+    if (currentCheckout.slipDataUrl) {
+      $('#slipPreview').src = currentCheckout.slipDataUrl;
+      $('#slipPreview').classList.remove('hidden');
+      $('#uploadText').textContent = '✓ สลิปที่อัปโหลด';
+      $('#uploadZone').classList.add('has-file');
+    }
+    if (currentCheckout.slipAmount) $('#slipAmount').value = currentCheckout.slipAmount;
+  }, 200);
+}
+
+function showSuccessStep(order) {
   openModal(`
-    <div class="checkout-step" style="text-align:center">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="success-screen">
       <div class="success-icon">✓</div>
-      <h2 class="checkout-title">สั่งซื้อสำเร็จ!</h2>
-      <p class="checkout-sub">เราได้ส่งไฟล์ไปยัง <b>${currentOrder.email}</b> เรียบร้อยแล้ว</p>
-      <div class="alert alert-warn">หากไม่พบในหน้าหลัก กรุณาเช็คใน Junk Mail / Spam</div>
-      <button class="btn btn-primary btn-block" onclick="closeModal()">กลับหน้าหลัก</button>
+      <h2 class="success-title">สั่งซื้อสำเร็จ!</h2>
+      <p class="success-text">
+        ระบบได้ส่งไฟล์ Template และคู่มือใช้งานเข้าอีเมลของคุณแล้ว<br>
+        กรุณาตรวจสอบอีเมล (รวมถึงโฟลเดอร์ Spam)
+      </p>
+
+      <div class="success-info">
+        <div class="success-info-row">
+          <span>เลขที่คำสั่งซื้อ:</span>
+          <strong>${order.id}</strong>
+        </div>
+        <div class="success-info-row">
+          <span>Template:</span>
+          <strong>${order.productTitle}</strong>
+        </div>
+        <div class="success-info-row">
+          <span>ส่งไปที่อีเมล:</span>
+          <strong>${order.email}</strong>
+        </div>
+        <div class="success-info-row">
+          <span>ยอดชำระ:</span>
+          <strong style="color:var(--green-mid)">฿${fmt(order.amount)}</strong>
+        </div>
+      </div>
+
+      <div class="alert alert-warn">
+        <span class="alert-icon">⚠️</span>
+        <div><strong>หากใส่อีเมลผิด</strong> หรือไม่ได้รับไฟล์ภายใน 5 นาที กรุณาติดต่อแอดมินพร้อมแจ้งเลขที่คำสั่งซื้อ</div>
+      </div>
+
+      <div style="display:flex;gap:8px;flex-direction:column;margin-top:16px;">
+        <button class="btn btn-primary btn-block" onclick="closeModal();openWriteReview(${order.productId})">
+          ✍️ เขียนรีวิว Template นี้
+        </button>
+        <button class="btn btn-secondary btn-block" onclick="openContact('${order.id}')">
+          ติดต่อแอดมิน (กรณีอีเมลผิด)
+        </button>
+      </div>
     </div>
   `);
 }
 
-function openModal(html) {
-  $('#modalContent').innerHTML = html;
-  $('#modal').classList.add('show');
+// ====================================================================
+// REVIEWS
+// ====================================================================
+let reviewRating = 0;
+
+function openWriteReview(productId = null) {
+  reviewRating = 0;
+  const products = PRODUCTS.map(p => `<option value="${p.id}" ${productId === p.id ? 'selected' : ''}>${p.title}</option>`).join('');
+  openModal(`
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="checkout-step">
+      <h2 class="checkout-title">✍️ เขียนรีวิวของคุณ</h2>
+      <p class="checkout-sub">บอกประสบการณ์การใช้งาน Template — ช่วยลูกค้าคนอื่น ๆ ตัดสินใจ</p>
+
+      <div class="form-group">
+        <label class="form-label">Template ที่ใช้ <span style="color:var(--red)">*</span></label>
+        <select class="form-input" id="reviewProduct">
+          <option value="">-- เลือก Template --</option>
+          ${products}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">ให้คะแนน <span style="color:var(--red)">*</span></label>
+        <div class="star-rating-input" id="starRating">
+          ${[1,2,3,4,5].map(n => `<button onclick="setRating(${n})">★</button>`).join('')}
+        </div>
+        <div class="form-help" id="ratingHelp">คลิกเพื่อให้คะแนน 1-5 ดาว</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">รีวิวของคุณ <span style="color:var(--red)">*</span></label>
+        <textarea class="form-textarea" id="reviewText" placeholder="ใช้แล้วเป็นยังไงบ้าง?  ช่วยให้งานง่ายขึ้นไหม? แนะนำคนอื่นไหม?"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">ชื่อของคุณ <span style="color:var(--red)">*</span></label>
+        <input type="text" class="form-input" id="reviewName" placeholder="เช่น คุณนภา ส.">
+        <div class="form-help">จะแสดงในหน้ารีวิว — ใช้นามแฝงได้</div>
+      </div>
+
+      <button class="btn btn-green btn-block" onclick="submitReview()">
+        ส่งรีวิว <span class="btn-arrow">→</span>
+      </button>
+    </div>
+  `);
 }
 
-function closeModal() {
-  $('#modal').classList.remove('show');
+function setRating(n) {
+  reviewRating = n;
+  const stars = $$('#starRating button');
+  stars.forEach((s, i) => {
+    s.classList.toggle('active', i < n);
+  });
+  $('#starRating').classList.add('set');
+  const labels = ['','😞 แย่มาก', '😐 แย่', '🙂 พอใช้', '😊 ดี', '🤩 ดีมาก'];
+  $('#ratingHelp').textContent = labels[n];
 }
 
-renderProducts();
+function submitReview() {
+  const productId = parseInt($('#reviewProduct').value);
+  const text = $('#reviewText').value.trim();
+  const name = $('#reviewName').value.trim();
+
+  if (!productId) { toast('กรุณาเลือก Template', 'error'); return; }
+  if (!reviewRating) { toast('กรุณาให้คะแนนดาว', 'error'); return; }
+  if (text.length < 10) { toast('กรุณาเขียนรีวิวอย่างน้อย 10 ตัวอักษร', 'error'); return; }
+  if (!name) { toast('กรุณากรอกชื่อ', 'error'); return; }
+
+  const product = PRODUCTS.find(p => p.id === productId);
+  const reviews = getReviews();
+  reviews.push({
+    id: Date.now(),
+    name: name,
+    rating: reviewRating,
+    text: text,
+    product: product.title,
+    date: nowStr().split(' ')[0]
+  });
+  saveReviews(reviews);
+
+  closeModal();
+  renderReviews();
+  toast('ขอบคุณสำหรับรีวิว! 🎉', 'success');
+  setTimeout(() => scrollTo('reviews-section'), 400);
+}
+
+// ====================================================================
+// CONTACT ADMIN
+// ====================================================================
+function openContact(orderId = '') {
+  openModal(`
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="checkout-step">
+      <h2 class="checkout-title">📞 ติดต่อแอดมิน</h2>
+      <p class="checkout-sub">มีปัญหาเรื่องการสั่งซื้อ? ใส่อีเมลผิด? ไม่ได้รับไฟล์? ติดต่อเราได้ที่นี่</p>
+
+      <div class="form-group">
+        <label class="form-label">เลขที่คำสั่งซื้อ (ถ้ามี)</label>
+        <input type="text" class="form-input" id="contactOrderId" placeholder="ORD-XXXXX" value="${orderId}">
+        <div class="form-help">หากเคยสั่งซื้อแล้ว ใส่เลขที่จะช่วยให้แอดมินตอบเร็วขึ้น</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">อีเมลของคุณ <span style="color:var(--red)">*</span></label>
+        <input type="email" class="form-input" id="contactEmail" placeholder="email@example.com">
+        <div class="form-help">อีเมลที่แอดมินจะตอบกลับ</div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">ข้อความ <span style="color:var(--red)">*</span></label>
+        <textarea class="form-textarea" id="contactMessage" placeholder="อธิบายปัญหาของคุณ เช่น 'ใส่อีเมลผิดเป็น xxx@email.com แต่ที่ถูกคือ yyy@email.com' หรือ 'ยังไม่ได้รับไฟล์'"></textarea>
+      </div>
+
+      <div class="alert alert-info">
+        <span class="alert-icon">ℹ️</span>
+        <div>แอดมินจะได้รับการแจ้งเตือนทันทีและตอบกลับภายใน 24 ชั่วโมง</div>
+      </div>
+
+      <button class="btn btn-green btn-block" onclick="submitContact()">
+        ส่งข้อความ <span class="btn-arrow">→</span>
+      </button>
+    </div>
+  `);
+}
+
+function submitContact() {
+  const orderId = $('#contactOrderId').value.trim();
+  const email = $('#contactEmail').value.trim();
+  const text = $('#contactMessage').value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!email || !emailRegex.test(email)) { toast('กรุณากรอกอีเมลที่ถูกต้อง', 'error'); return; }
+  if (text.length < 10) { toast('กรุณาเขียนข้อความอย่างน้อย 10 ตัวอักษร', 'error'); return; }
+
+  const messages = getMessages();
+  messages.push({
+    id: Date.now(),
+    orderId: orderId,
+    email: email,
+    text: text,
+    timestamp: Date.now(),
+    status: 'unread',
+    replies: []
+  });
+  saveMessages(messages);
+
+  // Simulate "send email to admin"
+  console.log(`📧 [SIMULATED] Email to admin: New contact from ${email}`);
+
+  closeModal();
+  toast('ส่งข้อความสำเร็จ! แอดมินจะตอบกลับทาง Email', 'success');
+}
+
+// ====================================================================
+// ADMIN
+// ====================================================================
+let isAdmin = false;
+let adminTab = 'orders';
+
+function openAdminLogin() {
+  if (isAdmin) {
+    openAdminPanel();
+    return;
+  }
+  openModal(`
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="admin-section admin-login">
+      <div class="admin-login-icon">🔐</div>
+      <h2 class="checkout-title">เข้าสู่ระบบหลังบ้าน</h2>
+      <p class="checkout-sub">สำหรับแอดมินเท่านั้น — ดูประวัติคำสั่งซื้อ ตอบข้อความลูกค้า</p>
+
+      <div class="form-group">
+        <label class="form-label">รหัสผ่านแอดมิน</label>
+        <input type="password" class="form-input" id="adminPwd" placeholder="••••••••" onkeyup="if(event.key==='Enter')doAdminLogin()">
+        <div class="form-help">รหัสตั้งต้น: <code style="background:var(--soft-bg);padding:2px 6px;border-radius:4px">admin1234</code> (Demo)</div>
+      </div>
+
+      <button class="btn btn-primary btn-block" onclick="doAdminLogin()">
+        เข้าสู่ระบบ
+      </button>
+    </div>
+  `);
+  setTimeout(() => $('#adminPwd')?.focus(), 100);
+}
+
+function doAdminLogin() {
+  const pwd = $('#adminPwd').value;
+  if (pwd === ADMIN_PASSWORD) {
+    isAdmin = true;
+    toast('เข้าสู่ระบบสำเร็จ', 'success');
+    openAdminPanel();
+  } else {
+    toast('รหัสผ่านไม่ถูกต้อง', 'error');
+  }
+}
+
+function openAdminPanel() {
+  const orders = getOrders();
+  const messages = getMessages();
+  const unreadCount = messages.filter(m => m.status === 'unread').length;
+
+  openModal(`
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="admin-section">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;">
+        <div>
+          <h2 class="checkout-title" style="margin-bottom:4px;">⚙️ ระบบหลังบ้าน sumsheets</h2>
+          <p style="color:var(--text-mute);font-size:13px;">แอดมิน · ${orders.length} คำสั่งซื้อ · ${unreadCount} ข้อความใหม่</p>
+        </div>
+        <button class="btn-small btn btn-secondary" onclick="logoutAdmin()">ออกจากระบบ</button>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="admin-tab ${adminTab === 'orders' ? 'active' : ''}" onclick="switchAdminTab('orders')">
+          📦 คำสั่งซื้อ (${orders.length})
+        </button>
+        <button class="admin-tab ${adminTab === 'messages' ? 'active' : ''}" onclick="switchAdminTab('messages')">
+          💬 ข้อความ ${unreadCount > 0 ? `<span style="color:var(--red)">(${unreadCount} ใหม่)</span>` : ''}
+        </button>
+        <button class="admin-tab ${adminTab === 'reviews' ? 'active' : ''}" onclick="switchAdminTab('reviews')">
+          ⭐ รีวิว (${getReviews().length})
+        </button>
+      </div>
+
+      <div id="adminContent">
+        ${adminTab === 'orders' ? renderAdminOrders() :
+          adminTab === 'messages' ? renderAdminMessages() :
+          renderAdminReviews()}
+      </div>
+    </div>
+  `);
+}
+
+function switchAdminTab(tab) {
+  adminTab = tab;
+  openAdminPanel();
+}
+
+function logoutAdmin() {
+  isAdmin = false;
+  closeModal();
+  toast('ออกจากระบบแล้ว', 'success');
+}
+
+function renderAdminOrders() {
+  const orders = getOrders().slice().reverse();
+  if (!orders.length) {
+    return '<div class="empty-state">ยังไม่มีคำสั่งซื้อ — ลองสั่งซื้อ Template เพื่อทดสอบ</div>';
+  }
+  return `
+    <div style="overflow-x:auto;">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>เลขที่</th>
+            <th>วันที่</th>
+            <th>Template</th>
+            <th>ยอด</th>
+            <th>อีเมล</th>
+            <th>สถานะ</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          ${orders.map(o => `
+            <tr>
+              <td><strong>${o.id.slice(-8)}</strong></td>
+              <td>${new Date(o.completedAt).toLocaleString('th-TH', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'})}</td>
+              <td>${o.productTitle}</td>
+              <td><strong style="color:var(--green-mid)">฿${fmt(o.amount)}</strong></td>
+              <td style="font-size:12px;">${o.email}</td>
+              <td><span class="status-badge status-${o.status}">${
+                o.status === 'paid' ? 'ส่งแล้ว' :
+                o.status === 'resent' ? 'ส่งซ้ำแล้ว' :
+                o.status === 'pending' ? 'รอดำเนินการ' : 'ผิดพลาด'
+              }</span></td>
+              <td><button class="btn-small btn btn-secondary" onclick="viewOrder('${o.id}')">ดู</button></td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function viewOrder(orderId) {
+  const orders = getOrders();
+  const o = orders.find(x => x.id === orderId);
+  if (!o) return;
+
+  openModal(`
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="admin-section">
+      <button class="btn-small btn btn-secondary" onclick="openAdminPanel()" style="margin-bottom:16px;">← กลับ</button>
+      <h2 class="checkout-title">รายละเอียดคำสั่งซื้อ</h2>
+      <p class="checkout-sub">${o.id}</p>
+
+      <div class="order-detail-section">
+        <div class="order-detail-row"><span>เลขที่คำสั่งซื้อ</span><strong>${o.id}</strong></div>
+        <div class="order-detail-row"><span>วันที่และเวลา</span><strong>${new Date(o.completedAt).toLocaleString('th-TH')}</strong></div>
+        <div class="order-detail-row"><span>Template</span><strong>${o.productTitle}</strong></div>
+        <div class="order-detail-row"><span>ยอดที่ชำระ</span><strong style="color:var(--green-mid)">฿${fmt(o.amount)}</strong></div>
+        <div class="order-detail-row"><span>ยอดในสลิป</span><strong>฿${fmt(o.slipAmount)}</strong></div>
+        <div class="order-detail-row"><span>สถานะ</span><span class="status-badge status-${o.status}">${o.status === 'paid' ? 'ส่งแล้ว' : o.status === 'resent' ? 'ส่งซ้ำแล้ว' : o.status}</span></div>
+      </div>
+
+      <h3 style="font-weight:700;margin:20px 0 10px;">📧 อีเมลผู้รับ</h3>
+      <div class="order-detail-section">
+        ${o.deliveredEmails.map((e,i) => `
+          <div class="order-detail-row">
+            <span>${i+1}. ${e.email} ${i === 0 ? '<small style="color:var(--text-mute)">(ต้นฉบับ)</small>' : '<small style="color:var(--green-mid)">(ส่งซ้ำ)</small>'}</span>
+            <span style="font-size:12px;color:var(--text-mute)">${new Date(e.time).toLocaleString('th-TH')}</span>
+          </div>
+        `).join('')}
+      </div>
+
+      <h3 style="font-weight:700;margin:20px 0 10px;">📷 สลิปการโอน</h3>
+      <img src="${o.slipDataUrl}" class="slip-image" alt="สลิป">
+
+      <h3 style="font-weight:700;margin:20px 0 10px;">📤 ส่งไฟล์ซ้ำให้อีเมลใหม่</h3>
+      <div class="form-group">
+        <label class="form-label">อีเมลที่ต้องการส่งซ้ำ</label>
+        <input type="email" class="form-input" id="resendEmail" placeholder="email@example.com">
+        <div class="form-help">หากลูกค้าใส่อีเมลผิด ใช้ช่องนี้ส่งให้อีเมลใหม่</div>
+      </div>
+      <button class="btn btn-green btn-block" onclick="resendOrder('${o.id}')">
+        📧 ส่งไฟล์ซ้ำให้อีเมลใหม่
+      </button>
+    </div>
+  `);
+}
+
+function resendOrder(orderId) {
+  const newEmail = $('#resendEmail').value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!newEmail || !emailRegex.test(newEmail)) {
+    toast('กรุณากรอกอีเมลที่ถูกต้อง', 'error');
+    return;
+  }
+
+  const orders = getOrders();
+  const o = orders.find(x => x.id === orderId);
+  if (!o) return;
+
+  o.deliveredEmails.push({email: newEmail, time: Date.now()});
+  o.status = 'resent';
+  saveOrders(orders);
+
+  console.log(`📧 [SIMULATED] Resent files to: ${newEmail}`);
+  toast(`ส่งไฟล์ซ้ำไปยัง ${newEmail} แล้ว`, 'success');
+  setTimeout(() => viewOrder(orderId), 500);
+}
+
+function renderAdminMessages() {
+  const messages = getMessages().slice().reverse();
+  if (!messages.length) {
+    return '<div class="empty-state">ยังไม่มีข้อความ — ลูกค้ายังไม่ได้ติดต่อแอดมิน</div>';
+  }
+  return messages.map(m => `
+    <div class="message-card ${m.status === 'unread' ? 'unread' : ''}">
+      <div class="message-meta">
+        <span><strong>${m.email}</strong> ${m.orderId ? '· ' + m.orderId : ''}</span>
+        <span>${new Date(m.timestamp).toLocaleString('th-TH', {day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})}</span>
+      </div>
+      <div class="message-text">${m.text}</div>
+      ${m.replies.length > 0 ? `
+        <div class="reply-thread">
+          ${m.replies.map(r => `
+            <div class="reply-item">
+              <div class="reply-from">${r.from === 'admin' ? '👨‍💼 แอดมิน' : '👤 ลูกค้า'}</div>
+              <div>${r.text}</div>
+            </div>
+          `).join('')}
+        </div>
+      ` : ''}
+      <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
+        <button class="btn-small btn btn-green" onclick="replyMessage(${m.id})">ตอบกลับ</button>
+        ${m.orderId ? `<button class="btn-small btn btn-secondary" onclick="viewOrder('${m.orderId}')">ดูคำสั่งซื้อ</button>` : ''}
+        ${m.status === 'unread' ? `<button class="btn-small btn btn-secondary" onclick="markRead(${m.id})">ทำเครื่องหมายอ่าน</button>` : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+function markRead(id) {
+  const messages = getMessages();
+  const m = messages.find(x => x.id === id);
+  if (m) { m.status = 'read'; saveMessages(messages); openAdminPanel(); }
+}
+
+function replyMessage(id) {
+  const reply = prompt('เขียนข้อความตอบกลับ:');
+  if (!reply || !reply.trim()) return;
+
+  const messages = getMessages();
+  const m = messages.find(x => x.id === id);
+  if (!m) return;
+
+  m.replies.push({ from: 'admin', text: reply.trim(), time: Date.now() });
+  m.status = 'replied';
+  saveMessages(messages);
+
+  console.log(`📧 [SIMULATED] Reply email to: ${m.email}`);
+  toast('ตอบกลับแล้ว — ลูกค้าจะได้รับ Email', 'success');
+  openAdminPanel();
+}
+
+function renderAdminReviews() {
+  const reviews = getReviews().slice().reverse();
+  if (!reviews.length) {
+    return '<div class="empty-state">ยังไม่มีรีวิว</div>';
+  }
+  return reviews.slice(0, 30).map(r => `
+    <div class="message-card">
+      <div class="message-meta">
+        <span><strong>${r.name}</strong> · ${r.product || ''}</span>
+        <span>${r.date}</span>
+      </div>
+      <div style="color:var(--gold);margin-bottom:8px;">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
+      <div class="message-text">${r.text}</div>
+    </div>
+  `).join('');
+}
+
+// ====================================================================
+// INIT
+// ====================================================================
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+  renderReviews();
+
+  // Reveal observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  $$('.reveal').forEach(el => observer.observe(el));
+
+  // ESC closes modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && $('#modal').classList.contains('show')) {
+      closeModal();
+    }
+  });
+});
 </script>
 </body>
 </html>
