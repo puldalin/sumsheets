@@ -1827,6 +1827,117 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
   .review-avg-num { font-size: 36px; }
   .footer-grid { grid-template-columns: 1fr; }
 }
+
+/* ============ SHEET PREVIEW EMBED ============ */
+.sheet-preview-embed {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+.sp-topbar {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 6px 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.sp-icon {
+  width: 22px; height: 22px;
+}
+.sp-title {
+  font-size: 13px; font-weight: 500; color: #202124;
+  font-family: 'Google Sans', sans-serif;
+}
+.sp-tpl-bar {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 8px;
+  display: flex; overflow-x: auto;
+  scrollbar-width: none;
+}
+.sp-tpl-bar::-webkit-scrollbar { display: none; }
+.sp-tpl-btn {
+  padding: 7px 12px; font-size: 11px; font-weight: 500;
+  color: #5f6368; border: none; background: transparent;
+  cursor: pointer; white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  font-family: inherit; transition: all .15s;
+}
+.sp-tpl-btn:hover { color: #1a73e8; }
+.sp-tpl-btn.active { color: #1a73e8; border-bottom-color: #1a73e8; }
+.sp-formula-bar {
+  background: #fff; border-bottom: 1px solid #e0e0e0;
+  padding: 3px 8px; display: flex; align-items: center; gap: 6px;
+}
+.sp-cell-ref {
+  width: 48px; padding: 2px 5px;
+  border: 1px solid #dadce0; border-radius: 3px;
+  font-size: 11px; color: #3c4043; text-align: center;
+  font-family: monospace;
+}
+.sp-formula {
+  flex: 1; padding: 2px 7px;
+  border: 1px solid #dadce0; border-radius: 3px;
+  font-size: 11px; color: #188038; font-family: monospace;
+  background: #fff;
+}
+.sp-scroll { overflow: auto; max-height: 280px; }
+table.sp-gs {
+  border-collapse: collapse; table-layout: fixed; font-size: 11px;
+}
+table.sp-gs th, table.sp-gs td {
+  border: 1px solid #e0e0e0; padding: 0 4px;
+  height: 20px; white-space: nowrap; overflow: hidden; vertical-align: middle;
+}
+table.sp-gs th.sp-corner {
+  background: #f8f9fa; position: sticky; top: 0; left: 0; z-index: 4; width: 32px;
+}
+table.sp-gs th.sp-col-head {
+  background: #f8f9fa; color: #3c4043; text-align: center;
+  font-weight: 400; position: sticky; top: 0; z-index: 3; font-size: 10px;
+}
+table.sp-gs td.sp-row-num {
+  background: #f8f9fa; color: #80868b; text-align: center;
+  font-weight: 400; position: sticky; left: 0; z-index: 2;
+  font-size: 10px; width: 32px;
+}
+.sp-selected { background: #e3f2fd !important; outline: 2px solid #1a73e8; outline-offset: -2px; }
+.sp-gs-head-row td { background: #1a73e8 !important; color: #fff !important; font-weight: 600 !important; }
+.sp-gs-bold { font-weight: 600; }
+.sp-gs-green { color: #188038; }
+.sp-gs-red { color: #d93025; }
+.sp-gs-blue { color: #1a73e8; }
+.sp-gs-gray { color: #80868b; }
+.sp-gs-num { text-align: right; }
+.sp-gs-center { text-align: center; }
+.sp-gs-bg-green { background: #e6f4ea !important; }
+.sp-gs-bg-blue { background: #e8f0fe !important; }
+.sp-gs-bg-yellow { background: #fef9e7 !important; }
+.sp-gs-bg-red { background: #fce8e6 !important; }
+.sp-gs-bg-dark { background: #1a73e8 !important; color: #fff !important; }
+.sp-gs-bg-header { background: #f8f9fa !important; color: #5f6368 !important; font-weight: 600 !important; }
+.sp-gs-merged { background: #e8f0fe !important; font-weight: 700 !important; color: #1a73e8 !important; }
+.sp-gs-formula { color: #188038; font-family: monospace; font-size: 10px; }
+.sp-gs-highlight { background: #fff9c4 !important; }
+.sp-gs-total { background: #f8f9fa !important; font-weight: 700 !important; border-top: 2px solid #1a73e8 !important; }
+.sp-tabs-bar {
+  background: #fff; border-top: 1px solid #e0e0e0;
+  display: flex; padding: 0 6px; overflow-x: auto;
+  scrollbar-width: none; height: 30px; align-items: stretch;
+}
+.sp-tabs-bar::-webkit-scrollbar { display: none; }
+.sp-sheet-tab {
+  padding: 0 12px; font-size: 11px; color: #5f6368;
+  cursor: pointer; border-radius: 6px 6px 0 0;
+  display: flex; align-items: center; gap: 5px;
+  white-space: nowrap; border: none; background: transparent;
+  font-family: inherit; height: 30px;
+  border-bottom: 2px solid transparent;
+}
+.sp-sheet-tab:hover { background: #f1f3f4; }
+.sp-sheet-tab.active { color: #1a73e8; border-bottom: 2px solid #1a73e8; font-weight: 500; }
+.sp-tab-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -2007,29 +2118,6 @@ input, textarea, select { font-family: inherit; font-size: inherit; }
       <span class="section-tag">วิธีใช้งาน</span>
       <h2>เริ่มต้นใน <span style="color:var(--green-bright);">6 ขั้นตอน</span></h2>
       <p class="section-sub">ตั้งแต่สั่งซื้อจนใช้งานได้จริง ใช้เวลาไม่ถึง 5 นาที</p>
-    </div>
-
-    <div class="steps-grid">
-      <div class="step reveal">
-        <div class="step-num">1</div>
-        <h3>เลือก Template</h3>
-        <p>เลือก Template Google Sheets ที่ตรงกับธุรกิจ กดปุ่ม "ซื้อเลย"</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">2</div>
-        <h3>กรอกอีเมล Gmail</h3>
-        <p>กรอก Gmail รับ Link ไม่ต้องสมัครสมาชิก ไม่ต้องเข้าสู่ระบบ</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">3</div>
-        <h3>โอนเงิน + ส่งสลิป</h3>
-        <p>โอนตรงหรือ PromptPay อัปโหลดสลิป ระบบตรวจสอบอัตโนมัติ</p>
-      </div>
-      <div class="step reveal">
-        <div class="step-num">4</div>
-        <h3>Make a Copy ลง Drive</h3>
-        <p>รับ Link ทาง Email กด "Make a Copy" — Template จะอยู่ใน Google Drive ของคุณทันที</p>
-      </div>
     </div>
 
     <!-- Setup Guide Interactive Mockup -->
@@ -2547,12 +2635,30 @@ const PRODUCTS = [
 
 // Default seed reviews
 const SEED_REVIEWS = [
-  {id:1, name:'คุณนภา ส.', rating:5, text:'ใช้แล้ว 6 เดือน ร้านกาแฟเปลี่ยนไปเยอะมาก รู้ตัวเลขทุกวัน ตัดสินใจสั่งของได้แม่นขึ้น คุ้มมากครับ', product:'ระบบจัดการร้านค้า Pro', date:'15/04/2025'},
-  {id:2, name:'คุณกิตติ ม.', rating:5, text:'ออก Invoice ได้สวยมาก ลูกค้าชม ดูเป็นมืออาชีพขึ้นเยอะ จากที่ใช้กระดาษเขียน ตอนนี้กดทีเดียวจบ', product:'Invoice & ใบเสร็จ Pro', date:'12/04/2025'},
-  {id:3, name:'คุณปริยา ก.', rating:5, text:'POS ใช้ง่ายสุด ๆ พนักงานใหม่สอน 10 นาทีเป็นเลย ตัดสต็อกอัตโนมัติช่วยได้มาก ไม่ต้องนับสต็อกทุกคืน', product:'ระบบ POS + สต็อกร้านค้า', date:'10/04/2025'},
-  {id:4, name:'คุณธนพล ร.', rating:5, text:'ขายของออนไลน์หลายแพลตฟอร์ม ก่อนหน้านี้งงมาก ตอนนี้เห็นช่องทางที่กำไรจริงชัด เลิกขายช่องทางที่ไม่คุ้มได้', product:'ระบบขายออนไลน์ Multi-channel', date:'08/04/2025'},
-  {id:5, name:'คุณวิภา ท.', rating:4, text:'Dashboard สวยงาม เห็นยอดขายชัดมาก แต่อยากให้มีกราฟเพิ่มอีกนิด โดยรวมคุ้มราคาครับ', product:'รายงานยอดขาย Dashboard', date:'05/04/2025'},
-  {id:6, name:'คุณนิรันดร์ ส.', rating:5, text:'ระบบ CRM เปลี่ยนวิธีทำธุรกิจของผมเลย รู้จักลูกค้ามากขึ้น ส่งโปรได้ตรงคน ยอดขายเพิ่ม 30%', product:'ระบบ CRM ลูกค้า', date:'02/04/2025'}
+  {id:1,  name:'นภา ส.',      rating:5, text:'ใช้มา 6 เดือนแล้ว ร้านกาแฟเปลี่ยนไปเยอะมากเลยค่ะ รู้ตัวเลขทุกวัน ตัดสินใจสั่งของได้แม่นขึ้น ไม่เคยขาดสต็อกเหมือนก่อน คุ้มมากจริง ๆ', product:'ระบบจัดการร้านค้า Pro', date:'28/04/2025'},
+  {id:2,  name:'กิตติ ม.',    rating:5, text:'ออก Invoice ได้สวยมากครับ ลูกค้าชม ดูเป็นมืออาชีพขึ้นเยอะเลย จากที่เคยเขียนกระดาษ ตอนนี้กดทีเดียวจบ ส่ง LINE ได้เลย ประหยัดเวลาไปมาก', product:'Invoice & ใบเสร็จ Pro', date:'26/04/2025'},
+  {id:3,  name:'ปริยา ก.',    rating:5, text:'POS ใช้ง่ายสุด ๆ เลยค่ะ พนักงานใหม่สอนแค่ 10 นาทีก็ใช้เป็น ตัดสต็อกอัตโนมัติช่วยได้มาก ไม่ต้องนับสต็อกทุกคืนแบบเมื่อก่อนแล้ว', product:'ระบบ POS + สต็อกร้านค้า', date:'25/04/2025'},
+  {id:4,  name:'ธนพล ร.',     rating:5, text:'ขายออนไลน์หลายแพลตฟอร์มแล้วงงมากก่อนหน้า ตอนนี้เห็นชัดเลยว่าช่องทางไหนกำไรจริง เลิกขาย Lazada แล้วโฟกัส TikTok แทน ยอดขายดีขึ้นเลย', product:'ระบบขายออนไลน์ Multi-channel', date:'24/04/2025'},
+  {id:5,  name:'วิภา ท.',     rating:4, text:'Dashboard สวยงามมากค่ะ เห็นยอดขายชัดเจนดี แต่ตอนแรกตั้งค่านานหน่อย พอเซ็ตเสร็จแล้วสะดวกมากเลย โดยรวมคุ้มค่าราคานี้', product:'รายงานยอดขาย Dashboard', date:'23/04/2025'},
+  {id:6,  name:'นิรันดร์ ส.', rating:5, text:'CRM เปลี่ยนวิธีทำธุรกิจผมเลยครับ รู้จักลูกค้ามากขึ้น ส่งโปรได้ตรงกลุ่ม ยอดซื้อซ้ำเพิ่มขึ้นชัดเจน จากเดือนละ 20 คน เป็น 35 คนแล้ว', product:'ระบบ CRM ลูกค้า', date:'22/04/2025'},
+  {id:7,  name:'สุดา พ.',     rating:5, text:'ร้านขนมโฮมเมดค่ะ ใช้ตัวคำนวณต้นทุนแล้วพบว่าขายคุกกี้ถูกไปมากเลย ปรับราคาใหม่แล้วกำไรเพิ่มขึ้น 40% เลยค่ะ ขอบคุณมากนะคะ', product:'คำนวณต้นทุน + ตั้งราคา', date:'21/04/2025'},
+  {id:8,  name:'อนุชา บ.',    rating:5, text:'ร้านผมมีพนักงาน 8 คน เคยงงเรื่องเวรและเงินเดือนมาตลอด ตอนนี้จัดการได้หมดในไฟล์เดียว สลิปเงินเดือนก็พิมพ์ได้เลย สะดวกมากครับ', product:'ระบบจัดการพนักงาน', date:'20/04/2025'},
+  {id:9,  name:'มาลี จ.',     rating:5, text:'เปิดร้านอาหารมา 3 ปี เพิ่งมาใช้ระบบนี้ โอ้โห รู้เลยว่าเมนูไหนขาดทุนอยู่ ตัดออก 2 เมนู กำไรรวมเพิ่มขึ้น ควรใช้ตั้งนานแล้วค่ะ', product:'ระบบจัดการร้านค้า Pro', date:'19/04/2025'},
+  {id:10, name:'ประสิทธิ์ ล.',rating:5, text:'ส่ง Invoice ให้คู่ค้าต่างประเทศได้ดูเป็นมืออาชีพมากครับ ก่อนหน้าใช้ Word ทำเอง ผิดพลาดบ่อย ตอนนี้ไม่มีปัญหาเรื่องนั้นแล้ว', product:'Invoice & ใบเสร็จ Pro', date:'18/04/2025'},
+  {id:11, name:'ชุติมา ว.',   rating:4, text:'ใช้ระบบบัญชีมา 2 เดือนแล้วค่ะ ทำบัญชีเองได้จริงแค่วันละ 5 นาที แต่อยากให้มีช่องบันทึกค่าใช้จ่ายเพิ่มได้เองอีกนิด โดยรวมโอเคมากค่ะ', product:'บัญชีร้านค้า Daily', date:'17/04/2025'},
+  {id:12, name:'วรวุฒิ ป.',   rating:5, text:'ร้านเสื้อผ้าออนไลน์ครับ สต็อกเยอะมาก เคยของหายบ่อยมาก ตอนนี้ตรวจสอบได้ทันทีเลยว่าของอยู่ไหน ขายเกินก็ไม่มีแล้ว ลูกค้าไม่ร้องเรียนเรื่องสต็อก', product:'ระบบ POS + สต็อกร้านค้า', date:'16/04/2025'},
+  {id:13, name:'พิมพ์ใจ ข.',  rating:5, text:'คลินิกความงามค่ะ ใช้ CRM ติดตามลูกค้าที่ยังไม่กลับมา ส่ง LINE หาตอนครบ 3 เดือน ลูกค้ากลับมาเยอะขึ้นมากเลย ดีใจที่ซื้อมาใช้', product:'ระบบ CRM ลูกค้า', date:'15/04/2025'},
+  {id:14, name:'ณัฐวุฒิ ท.',  rating:5, text:'Dashboard เอาไปรีพอร์ตให้หุ้นส่วนดูทุกเดือน ดูเป็นมืออาชีพมากครับ ข้อมูลครบ อธิบายง่าย ไม่ต้องทำ Slide เพิ่มแล้ว', product:'รายงานยอดขาย Dashboard', date:'14/04/2025'},
+  {id:15, name:'ศิริพร อ.',   rating:5, text:'เปิดร้านกาแฟสาขาที่ 2 ใช้ไฟล์เดิมได้เลยค่ะ แค่ก็อปชีทแล้วปรับนิดหน่อย ประหยัดเวลาตั้งระบบไปเยอะมาก แอดมินตอบคำถามเร็วด้วย', product:'ระบบจัดการร้านค้า Pro', date:'13/04/2025'},
+  {id:16, name:'ภัทรพล ส.',   rating:4, text:'ใช้คำนวณต้นทุนเมนูอาหารครับ สูตรถูกต้องดี แต่ตอนแรกงงนิดหน่อยเรื่องการใส่ค่าโสหุ้ย พอเข้าใจแล้วก็โอเคเลย ตั้งราคาได้มั่นใจขึ้นมากครับ', product:'คำนวณต้นทุน + ตั้งราคา', date:'12/04/2025'},
+  {id:17, name:'กัญญา ม.',    rating:5, text:'ร้านเบเกอรี่ค่ะ ก่อนหน้าไม่รู้เลยว่าขายแต่ละวันได้กำไรเท่าไหร่ ตอนนี้รู้หมด ปรับ mix สินค้าใหม่ กำไรต่อวันเพิ่มขึ้นชัดเจนเลย', product:'บัญชีร้านค้า Daily', date:'11/04/2025'},
+  {id:18, name:'ธีรศักดิ์ น.',rating:5, text:'จ้างพนักงาน Part-time 12 คน เคยคำนวณเงินเดือนผิดบ่อยมาก ตอนนี้ไม่ผิดเลยครับ ระบบคิด OT ให้อัตโนมัติ พนักงานก็พอใจเพราะตัวเลขถูกต้อง', product:'ระบบจัดการพนักงาน', date:'10/04/2025'},
+  {id:19, name:'รุ่งทิพย์ ค.', rating:5, text:'ขาย Shopee กับ TikTok พร้อมกัน ก่อนหน้างงสต็อกมาก ตอนนี้จัดการได้ในไฟล์เดียว รู้เลยว่า TikTok กำไรดีกว่า Shopee เยอะ ปรับกลยุทธ์ได้เลย', product:'ระบบขายออนไลน์ Multi-channel', date:'09/04/2025'},
+  {id:20, name:'จิรายุ ฉ.',   rating:5, text:'ซื้อครั้งแรกแล้วชอบมาก ซื้อเพิ่มอีก 2 ตัวเลยครับ ราคาถูกมากเทียบกับประโยชน์ที่ได้ ไม่ต้องจ่ายรายเดือนด้วย ซื้อครั้งเดียวใช้ได้นาน', product:'ระบบจัดการร้านค้า Pro', date:'08/04/2025'},
+  {id:21, name:'อัญชลี ร.',   rating:5, text:'ร้านสปาค่ะ ใช้ CRM ตั้งแจ้งเตือนวันเกิดลูกค้าอัตโนมัติ ส่งโปรวันเกิด ลูกค้ารู้สึกว่าร้านใส่ใจ กลับมาใช้บริการซ้ำเยอะขึ้นมาก ดีใจมากค่ะ', product:'ระบบ CRM ลูกค้า', date:'07/04/2025'},
+  {id:22, name:'พงษ์ศักดิ์ ว.',rating:4, text:'POS ใช้งานได้ดีครับ รองรับ PromptPay สะดวกมาก แต่อยากให้มีช่องใส่ชื่อโต๊ะสำหรับร้านอาหารด้วย โดยรวมถือว่าดีสำหรับราคานี้', product:'ระบบ POS + สต็อกร้านค้า', date:'06/04/2025'},
+  {id:23, name:'นันทนา ก.',   rating:5, text:'ทำบัญชีส่งนักบัญชีได้เลยค่ะ ไม่ต้องนั่งรวบรวมข้อมูลเองให้ยุ่งยากเหมือนก่อน ประหยัดค่าจ้างนักบัญชีได้เยอะ เพราะข้อมูลครบและถูกต้องแล้ว', product:'บัญชีร้านค้า Daily', date:'05/04/2025'},
+  {id:24, name:'สมหมาย ด.',   rating:5, text:'อายุ 58 ครับ ไม่เก่ง Excel เลย แต่ใช้ได้โดยไม่ต้องเขียนสูตรเอง แค่กรอกตัวเลข ทุกอย่างคำนวณให้เองหมด คู่มือภาษาไทยชัดเจนมาก แนะนำเลยครับ', product:'ระบบจัดการร้านค้า Pro', date:'03/04/2025'}
 ];
 
 // ====================================================================
@@ -2764,19 +2870,10 @@ function openProduct(id) {
         </ul>
       </div>
 
-      <!-- Template Preview Image Placeholder -->
+      <!-- Live Sheet Preview -->
       <div class="pd-section">
-        <h3><span class="icon">🖼️</span> ตัวอย่าง Template</h3>
-        <div class="template-preview-grid">
-          <div class="img-placeholder">
-            <div class="img-placeholder-icon">📊</div>
-            <div class="img-placeholder-label">ภาพตัวอย่าง: หน้า Dashboard</div>
-          </div>
-          <div class="img-placeholder">
-            <div class="img-placeholder-icon">📋</div>
-            <div class="img-placeholder-label">ภาพตัวอย่าง: หน้าบันทึกข้อมูล</div>
-          </div>
-        </div>
+        <h3><span class="icon">🖼️</span> ตัวอย่าง Template (Interactive)</h3>
+        <div id="sheetPreview_${p.id}" class="sheet-preview-embed"></div>
       </div>
     </div>
 
@@ -2790,6 +2887,8 @@ function openProduct(id) {
       </button>
     </div>
   `);
+  // Render the interactive sheet preview
+  setTimeout(() => renderSheetPreview(p.id), 0);
 }
 
 // ====================================================================
@@ -3610,4 +3709,64 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 </body>
+  <script>
+// 1. สร้างข้อมูลสินค้า
+const products = [
+  {
+    id: 1,
+    title: "ระบบ POS & สต็อกพื้นฐาน",
+    cat: "Google Sheets",
+    desc: "เหมาะสำหรับร้านเปิดใหม่ บันทึกรับ-จ่าย เช็กสต็อกได้ในไฟล์เดียว",
+    priceNow: 290,
+    priceOld: 590,
+    emoji: "☕"
+  },
+  {
+    id: 2,
+    title: "ระบบจัดการร้านค้า Pro",
+    cat: "Automation",
+    desc: "ระบบจัดเต็ม Dashboard สวยงาม วิเคราะห์กำไรรายวันอัตโนมัติ",
+    priceNow: 990,
+    priceOld: 1590,
+    emoji: "📊"
+  }
+];
+
+// 2. ฟังก์ชันแสดงผลสินค้า
+function renderProducts() {
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = products.map(p => `
+    <div class="product-card">
+      <div class="product-image">
+        <span class="product-emoji">${p.emoji}</span>
+      </div>
+      <div class="product-body">
+        <div class="product-cat">${p.cat}</div>
+        <h3 class="product-title">${p.title}</h3>
+        <p class="product-desc">${p.desc}</p>
+        <div class="product-foot">
+          <div>
+            <span class="price-old">฿${p.priceOld}</span>
+            <span class="price-now">฿${p.priceNow}</span>
+          </div>
+          <button class="product-buy">ดูรายละเอียด</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// 3. สั่งให้ทำงานเมื่อโหลดหน้า
+window.onload = () => {
+  renderProducts();
+};
+
+// 4. เพิ่มฟังก์ชันพื้นฐานที่ปุ่มเรียกใช้
+function scrollTo(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+function goHome() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
 </html>
